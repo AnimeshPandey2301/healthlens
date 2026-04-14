@@ -1,0 +1,81 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model MedicalProfile {
+  id                String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId            String   @unique @db.Uuid
+  fullName          String?
+  age               Int?
+  gender            String?
+  bloodGroup        String?
+  knownAllergies    String[]
+  chronicConditions String[]
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@map("medical_profiles")
+}
+
+model SymptomSession {
+  id              String          @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId          String?         @db.Uuid
+  sessionToken    String          @unique
+  symptomsEntered String[]
+  ageGroup        String
+  genderFilter    String
+  duration        String
+  topCondition    String?
+  severityLevel   String
+  resultCount     Int
+  createdAt       DateTime        @default(now())
+  results         SessionResult[]
+
+  @@map("symptom_sessions")
+}
+
+model SessionResult {
+  id            String         @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  sessionId     String         @db.Uuid
+  session       SymptomSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  conditionName String
+  conditionId   String
+  matchScore    Float
+  severityLevel String
+  rank          Int
+  createdAt     DateTime       @default(now())
+
+  @@map("session_results")
+}
+
+model Condition {
+  id                String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  slug              String   @unique
+  name              String
+  description       String
+  symptoms          String[]
+  severityLevel     String
+  speciality        String
+  precautions       String[]
+  medicineAwareness String[]
+  articleUrl        String?
+  createdAt         DateTime @default(now())
+
+  @@map("conditions")
+}
+
+model Symptom {
+  id             String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  slug           String   @unique
+  displayName    String
+  severityWeight Int
+  bodyArea       String
+  commonAliases  String[]
+  createdAt      DateTime @default(now())
+
+  @@map("symptoms")
+}

@@ -49,6 +49,10 @@
 }
 
 :root {
+  /* HealthLens brand tokens */
+  --teal-primary: #0D9488;
+  --navy: #1E3A5F;
+
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
