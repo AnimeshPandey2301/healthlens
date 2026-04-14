@@ -1,0 +1,919 @@
+[
+  {
+    "slug": "itching",
+    "displayName": "Itching",
+    "severityWeight": 1,
+    "bodyArea": "skin",
+    "commonAliases": []
+  },
+  {
+    "slug": "skin_rash",
+    "displayName": "Skin Rash",
+    "severityWeight": 3,
+    "bodyArea": "skin",
+    "commonAliases": []
+  },
+  {
+    "slug": "nodal_skin_eruptions",
+    "displayName": "Nodal Skin Eruptions",
+    "severityWeight": 4,
+    "bodyArea": "skin",
+    "commonAliases": []
+  },
+  {
+    "slug": "dischromic__patches",
+    "displayName": "Dischromic  Patches",
+    "severityWeight": 1,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "continuous_sneezing",
+    "displayName": "Continuous Sneezing",
+    "severityWeight": 4,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "shivering",
+    "displayName": "Shivering",
+    "severityWeight": 5,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "chills",
+    "displayName": "Chills",
+    "severityWeight": 3,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "watering_from_eyes",
+    "displayName": "Watering From Eyes",
+    "severityWeight": 4,
+    "bodyArea": "head",
+    "commonAliases": []
+  },
+  {
+    "slug": "stomach_pain",
+    "displayName": "Stomach Pain",
+    "severityWeight": 5,
+    "bodyArea": "stomach",
+    "commonAliases": []
+  },
+  {
+    "slug": "acidity",
+    "displayName": "Acidity",
+    "severityWeight": 3,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "ulcers_on_tongue",
+    "displayName": "Ulcers On Tongue",
+    "severityWeight": 4,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "vomiting",
+    "displayName": "Vomiting",
+    "severityWeight": 5,
+    "bodyArea": "stomach",
+    "commonAliases": []
+  },
+  {
+    "slug": "cough",
+    "displayName": "Cough",
+    "severityWeight": 4,
+    "bodyArea": "chest",
+    "commonAliases": []
+  },
+  {
+    "slug": "chest_pain",
+    "displayName": "Chest Pain",
+    "severityWeight": 7,
+    "bodyArea": "chest",
+    "commonAliases": []
+  },
+  {
+    "slug": "yellowish_skin",
+    "displayName": "Yellowish Skin",
+    "severityWeight": 3,
+    "bodyArea": "skin",
+    "commonAliases": []
+  },
+  {
+    "slug": "nausea",
+    "displayName": "Nausea",
+    "severityWeight": 5,
+    "bodyArea": "stomach",
+    "commonAliases": []
+  },
+  {
+    "slug": "loss_of_appetite",
+    "displayName": "Loss Of Appetite",
+    "severityWeight": 4,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "abdominal_pain",
+    "displayName": "Abdominal Pain",
+    "severityWeight": 4,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "yellowing_of_eyes",
+    "displayName": "Yellowing Of Eyes",
+    "severityWeight": 4,
+    "bodyArea": "head",
+    "commonAliases": []
+  },
+  {
+    "slug": "burning_micturition",
+    "displayName": "Burning Micturition",
+    "severityWeight": 6,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "spotting__urination",
+    "displayName": "Spotting  Urination",
+    "severityWeight": 1,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "passage_of_gases",
+    "displayName": "Passage Of Gases",
+    "severityWeight": 5,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "internal_itching",
+    "displayName": "Internal Itching",
+    "severityWeight": 4,
+    "bodyArea": "skin",
+    "commonAliases": []
+  },
+  {
+    "slug": "indigestion",
+    "displayName": "Indigestion",
+    "severityWeight": 5,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "muscle_wasting",
+    "displayName": "Muscle Wasting",
+    "severityWeight": 3,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "patches_in_throat",
+    "displayName": "Patches In Throat",
+    "severityWeight": 6,
+    "bodyArea": "head",
+    "commonAliases": []
+  },
+  {
+    "slug": "high_fever",
+    "displayName": "High Fever",
+    "severityWeight": 7,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "extra_marital_contacts",
+    "displayName": "Extra Marital Contacts",
+    "severityWeight": 5,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "fatigue",
+    "displayName": "Fatigue",
+    "severityWeight": 4,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "weight_loss",
+    "displayName": "Weight Loss",
+    "severityWeight": 3,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "restlessness",
+    "displayName": "Restlessness",
+    "severityWeight": 5,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "lethargy",
+    "displayName": "Lethargy",
+    "severityWeight": 2,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "irregular_sugar_level",
+    "displayName": "Irregular Sugar Level",
+    "severityWeight": 5,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "blurred_and_distorted_vision",
+    "displayName": "Blurred And Distorted Vision",
+    "severityWeight": 5,
+    "bodyArea": "head",
+    "commonAliases": []
+  },
+  {
+    "slug": "obesity",
+    "displayName": "Obesity",
+    "severityWeight": 4,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "excessive_hunger",
+    "displayName": "Excessive Hunger",
+    "severityWeight": 4,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "increased_appetite",
+    "displayName": "Increased Appetite",
+    "severityWeight": 5,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "polyuria",
+    "displayName": "Polyuria",
+    "severityWeight": 4,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "sunken_eyes",
+    "displayName": "Sunken Eyes",
+    "severityWeight": 3,
+    "bodyArea": "head",
+    "commonAliases": []
+  },
+  {
+    "slug": "dehydration",
+    "displayName": "Dehydration",
+    "severityWeight": 4,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "diarrhoea",
+    "displayName": "Diarrhoea",
+    "severityWeight": 6,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "breathlessness",
+    "displayName": "Breathlessness",
+    "severityWeight": 4,
+    "bodyArea": "chest",
+    "commonAliases": []
+  },
+  {
+    "slug": "family_history",
+    "displayName": "Family History",
+    "severityWeight": 5,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "mucoid_sputum",
+    "displayName": "Mucoid Sputum",
+    "severityWeight": 4,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "headache",
+    "displayName": "Headache",
+    "severityWeight": 3,
+    "bodyArea": "head",
+    "commonAliases": []
+  },
+  {
+    "slug": "dizziness",
+    "displayName": "Dizziness",
+    "severityWeight": 4,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "loss_of_balance",
+    "displayName": "Loss Of Balance",
+    "severityWeight": 4,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "lack_of_concentration",
+    "displayName": "Lack Of Concentration",
+    "severityWeight": 3,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "stiff_neck",
+    "displayName": "Stiff Neck",
+    "severityWeight": 4,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "depression",
+    "displayName": "Depression",
+    "severityWeight": 3,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "irritability",
+    "displayName": "Irritability",
+    "severityWeight": 2,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "visual_disturbances",
+    "displayName": "Visual Disturbances",
+    "severityWeight": 3,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "back_pain",
+    "displayName": "Back Pain",
+    "severityWeight": 3,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "weakness_in_limbs",
+    "displayName": "Weakness In Limbs",
+    "severityWeight": 7,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "neck_pain",
+    "displayName": "Neck Pain",
+    "severityWeight": 5,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "weakness_of_one_body_side",
+    "displayName": "Weakness Of One Body Side",
+    "severityWeight": 4,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "altered_sensorium",
+    "displayName": "Altered Sensorium",
+    "severityWeight": 2,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "dark_urine",
+    "displayName": "Dark Urine",
+    "severityWeight": 4,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "sweating",
+    "displayName": "Sweating",
+    "severityWeight": 3,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "muscle_pain",
+    "displayName": "Muscle Pain",
+    "severityWeight": 2,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "mild_fever",
+    "displayName": "Mild Fever",
+    "severityWeight": 5,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "swelled_lymph_nodes",
+    "displayName": "Swelled Lymph Nodes",
+    "severityWeight": 6,
+    "bodyArea": "skin",
+    "commonAliases": []
+  },
+  {
+    "slug": "malaise",
+    "displayName": "Malaise",
+    "severityWeight": 6,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "red_spots_over_body",
+    "displayName": "Red Spots Over Body",
+    "severityWeight": 3,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "joint_pain",
+    "displayName": "Joint Pain",
+    "severityWeight": 3,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "pain_behind_the_eyes",
+    "displayName": "Pain Behind The Eyes",
+    "severityWeight": 4,
+    "bodyArea": "head",
+    "commonAliases": []
+  },
+  {
+    "slug": "constipation",
+    "displayName": "Constipation",
+    "severityWeight": 4,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "toxic_look_(typhos)",
+    "displayName": "Toxic Look (typhos)",
+    "severityWeight": 5,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "belly_pain",
+    "displayName": "Belly Pain",
+    "severityWeight": 4,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "yellow_urine",
+    "displayName": "Yellow Urine",
+    "severityWeight": 4,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "receiving_blood_transfusion",
+    "displayName": "Receiving Blood Transfusion",
+    "severityWeight": 5,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "receiving_unsterile_injections",
+    "displayName": "Receiving Unsterile Injections",
+    "severityWeight": 2,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "coma",
+    "displayName": "Coma",
+    "severityWeight": 7,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "stomach_bleeding",
+    "displayName": "Stomach Bleeding",
+    "severityWeight": 6,
+    "bodyArea": "stomach",
+    "commonAliases": []
+  },
+  {
+    "slug": "acute_liver_failure",
+    "displayName": "Acute Liver Failure",
+    "severityWeight": 6,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "swelling_of_stomach",
+    "displayName": "Swelling Of Stomach",
+    "severityWeight": 7,
+    "bodyArea": "stomach",
+    "commonAliases": []
+  },
+  {
+    "slug": "distention_of_abdomen",
+    "displayName": "Distention Of Abdomen",
+    "severityWeight": 4,
+    "bodyArea": "stomach",
+    "commonAliases": []
+  },
+  {
+    "slug": "history_of_alcohol_consumption",
+    "displayName": "History Of Alcohol Consumption",
+    "severityWeight": 5,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "fluid_overload",
+    "displayName": "Fluid Overload",
+    "severityWeight": 4,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "phlegm",
+    "displayName": "Phlegm",
+    "severityWeight": 5,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "blood_in_sputum",
+    "displayName": "Blood In Sputum",
+    "severityWeight": 5,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "throat_irritation",
+    "displayName": "Throat Irritation",
+    "severityWeight": 4,
+    "bodyArea": "head",
+    "commonAliases": []
+  },
+  {
+    "slug": "redness_of_eyes",
+    "displayName": "Redness Of Eyes",
+    "severityWeight": 5,
+    "bodyArea": "head",
+    "commonAliases": []
+  },
+  {
+    "slug": "sinus_pressure",
+    "displayName": "Sinus Pressure",
+    "severityWeight": 4,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "runny_nose",
+    "displayName": "Runny Nose",
+    "severityWeight": 5,
+    "bodyArea": "head",
+    "commonAliases": []
+  },
+  {
+    "slug": "congestion",
+    "displayName": "Congestion",
+    "severityWeight": 5,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "loss_of_smell",
+    "displayName": "Loss Of Smell",
+    "severityWeight": 3,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "fast_heart_rate",
+    "displayName": "Fast Heart Rate",
+    "severityWeight": 5,
+    "bodyArea": "head",
+    "commonAliases": []
+  },
+  {
+    "slug": "rusty_sputum",
+    "displayName": "Rusty Sputum",
+    "severityWeight": 4,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "pain_during_bowel_movements",
+    "displayName": "Pain During Bowel Movements",
+    "severityWeight": 5,
+    "bodyArea": "stomach",
+    "commonAliases": []
+  },
+  {
+    "slug": "pain_in_anal_region",
+    "displayName": "Pain In Anal Region",
+    "severityWeight": 6,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "bloody_stool",
+    "displayName": "Bloody Stool",
+    "severityWeight": 5,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "irritation_in_anus",
+    "displayName": "Irritation In Anus",
+    "severityWeight": 6,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "cramps",
+    "displayName": "Cramps",
+    "severityWeight": 4,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "bruising",
+    "displayName": "Bruising",
+    "severityWeight": 4,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "swollen_legs",
+    "displayName": "Swollen Legs",
+    "severityWeight": 5,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "swollen_blood_vessels",
+    "displayName": "Swollen Blood Vessels",
+    "severityWeight": 5,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "prominent_veins_on_calf",
+    "displayName": "Prominent Veins On Calf",
+    "severityWeight": 6,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "weight_gain",
+    "displayName": "Weight Gain",
+    "severityWeight": 3,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "cold_hands_and_feets",
+    "displayName": "Cold Hands And Feets",
+    "severityWeight": 5,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "mood_swings",
+    "displayName": "Mood Swings",
+    "severityWeight": 3,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "puffy_face_and_eyes",
+    "displayName": "Puffy Face And Eyes",
+    "severityWeight": 5,
+    "bodyArea": "head",
+    "commonAliases": []
+  },
+  {
+    "slug": "enlarged_thyroid",
+    "displayName": "Enlarged Thyroid",
+    "severityWeight": 6,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "brittle_nails",
+    "displayName": "Brittle Nails",
+    "severityWeight": 5,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "swollen_extremeties",
+    "displayName": "Swollen Extremeties",
+    "severityWeight": 5,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "abnormal_menstruation",
+    "displayName": "Abnormal Menstruation",
+    "severityWeight": 6,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "muscle_weakness",
+    "displayName": "Muscle Weakness",
+    "severityWeight": 2,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "anxiety",
+    "displayName": "Anxiety",
+    "severityWeight": 4,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "slurred_speech",
+    "displayName": "Slurred Speech",
+    "severityWeight": 4,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "palpitations",
+    "displayName": "Palpitations",
+    "severityWeight": 4,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "drying_and_tingling_lips",
+    "displayName": "Drying And Tingling Lips",
+    "severityWeight": 4,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "knee_pain",
+    "displayName": "Knee Pain",
+    "severityWeight": 3,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "hip_joint_pain",
+    "displayName": "Hip Joint Pain",
+    "severityWeight": 2,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "swelling_joints",
+    "displayName": "Swelling Joints",
+    "severityWeight": 5,
+    "bodyArea": "skin",
+    "commonAliases": []
+  },
+  {
+    "slug": "painful_walking",
+    "displayName": "Painful Walking",
+    "severityWeight": 2,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "movement_stiffness",
+    "displayName": "Movement Stiffness",
+    "severityWeight": 5,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "spinning_movements",
+    "displayName": "Spinning Movements",
+    "severityWeight": 6,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "unsteadiness",
+    "displayName": "Unsteadiness",
+    "severityWeight": 4,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "pus_filled_pimples",
+    "displayName": "Pus Filled Pimples",
+    "severityWeight": 2,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "blackheads",
+    "displayName": "Blackheads",
+    "severityWeight": 2,
+    "bodyArea": "head",
+    "commonAliases": []
+  },
+  {
+    "slug": "scurring",
+    "displayName": "Scurring",
+    "severityWeight": 2,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "bladder_discomfort",
+    "displayName": "Bladder Discomfort",
+    "severityWeight": 4,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "foul_smell_of_urine",
+    "displayName": "Foul Smell Of Urine",
+    "severityWeight": 1,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "continuous_feel_of_urine",
+    "displayName": "Continuous Feel Of Urine",
+    "severityWeight": 6,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "skin_peeling",
+    "displayName": "Skin Peeling",
+    "severityWeight": 3,
+    "bodyArea": "skin",
+    "commonAliases": []
+  },
+  {
+    "slug": "silver_like_dusting",
+    "displayName": "Silver Like Dusting",
+    "severityWeight": 2,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "small_dents_in_nails",
+    "displayName": "Small Dents In Nails",
+    "severityWeight": 2,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "inflammatory_nails",
+    "displayName": "Inflammatory Nails",
+    "severityWeight": 2,
+    "bodyArea": "general",
+    "commonAliases": []
+  },
+  {
+    "slug": "blister",
+    "displayName": "Blister",
+    "severityWeight": 4,
+    "bodyArea": "skin",
+    "commonAliases": []
+  },
+  {
+    "slug": "red_sore_around_nose",
+    "displayName": "Red Sore Around Nose",
+    "severityWeight": 2,
+    "bodyArea": "head",
+    "commonAliases": []
+  },
+  {
+    "slug": "yellow_crust_ooze",
+    "displayName": "Yellow Crust Ooze",
+    "severityWeight": 3,
+    "bodyArea": "general",
+    "commonAliases": []
+  }
+]
