@@ -1,0 +1,309 @@
+[
+  {
+    "slug": "adult-cpr",
+    "title": "Adult CPR",
+    "icon": "🫀",
+    "shortDescription": "Life-saving chest compressions and rescue breaths for unresponsive adults.",
+    "warning": "Only perform CPR if the person is unresponsive and not breathing normally. Incorrect technique can cause injury.",
+    "steps": [
+      {
+        "stepNumber": 1,
+        "instruction": "Check for responsiveness — tap the person's shoulders and shout 'Are you okay?' loudly.",
+        "timeIndicator": "5–10 seconds"
+      },
+      {
+        "stepNumber": 2,
+        "instruction": "Call 112 immediately or ask a bystander to call while you begin CPR.",
+        "timeIndicator": null
+      },
+      {
+        "stepNumber": 3,
+        "instruction": "Place the person on their back on a firm, flat surface. Tilt their head back gently to open the airway.",
+        "timeIndicator": null
+      },
+      {
+        "stepNumber": 4,
+        "instruction": "Place the heel of one hand on the centre of the chest (lower half of breastbone). Place your other hand on top, interlace fingers. Keep arms straight and push down firmly — 5 to 6 cm deep — at a rate of 100 to 120 compressions per minute. Allow the chest to fully rise between compressions.",
+        "timeIndicator": "30 compressions"
+      },
+      {
+        "stepNumber": 5,
+        "instruction": "Give 2 rescue breaths — tilt head back, lift the chin, pinch the nose shut, seal your mouth over theirs and blow until you see the chest rise. Each breath should last about 1 second.",
+        "timeIndicator": "2 breaths"
+      },
+      {
+        "stepNumber": 6,
+        "instruction": "Continue the cycle of 30 chest compressions followed by 2 rescue breaths without stopping until emergency services arrive, an AED becomes available, or the person starts breathing normally.",
+        "timeIndicator": "Continue 30:2"
+      }
+    ]
+  },
+  {
+    "slug": "child-cpr",
+    "title": "Child CPR",
+    "icon": "🧒",
+    "shortDescription": "Modified CPR technique for children aged 1–8 with gentler compressions and smaller breaths.",
+    "warning": "Child CPR differs from adult CPR. Using adult force can cause serious internal injuries in children. If alone with the child, perform 2 minutes of CPR before calling 112.",
+    "steps": [
+      {
+        "stepNumber": 1,
+        "instruction": "Check for responsiveness — call the child's name, tap their shoulder gently. Do not shake a child who may have a neck injury.",
+        "timeIndicator": "5–10 seconds"
+      },
+      {
+        "stepNumber": 2,
+        "instruction": "Call 112. If you are alone, perform 2 minutes of CPR first, then call.",
+        "timeIndicator": null
+      },
+      {
+        "stepNumber": 3,
+        "instruction": "Lay the child on their back on a firm surface. Gently tilt the head back to open the airway — less tilt than for an adult.",
+        "timeIndicator": null
+      },
+      {
+        "stepNumber": 4,
+        "instruction": "Place the heel of ONE hand on the lower half of the breastbone. Press down about 5 cm (one-third of the chest depth) at 100–120 compressions per minute. Allow full chest recoil between compressions.",
+        "timeIndicator": "30 compressions"
+      },
+      {
+        "stepNumber": 5,
+        "instruction": "Give 2 gentle rescue breaths — tilt head, lift chin, pinch nose, cover the child's mouth with yours. Blow gently until the chest rises (smaller volume than for adults).",
+        "timeIndicator": "2 breaths"
+      },
+      {
+        "stepNumber": 6,
+        "instruction": "Continue the 30:2 cycle until emergency services arrive, the child resumes normal breathing, or you are physically unable to continue.",
+        "timeIndicator": "Continue 30:2"
+      }
+    ]
+  },
+  {
+    "slug": "choking",
+    "title": "Choking",
+    "icon": "🤧",
+    "shortDescription": "Clear a blocked airway with back blows and abdominal thrusts before it becomes life-threatening.",
+    "warning": "Never perform abdominal thrusts on infants under 1 year, pregnant women, or the severely obese. Use modified techniques for these groups.",
+    "steps": [
+      {
+        "stepNumber": 1,
+        "instruction": "Identify choking — the person cannot speak, cough effectively, or breathe. They may clutch their throat. Ask 'Are you choking?' If they can cough, encourage them to keep coughing.",
+        "timeIndicator": null
+      },
+      {
+        "stepNumber": 2,
+        "instruction": "Lean the person forward. Deliver 5 firm back blows between the shoulder blades with the heel of your hand. Check after each blow to see if the blockage is cleared.",
+        "timeIndicator": "5 back blows"
+      },
+      {
+        "stepNumber": 3,
+        "instruction": "If back blows fail, stand behind the person, wrap your arms around their waist. Make a fist and place it thumb-side against the abdomen, just above the navel and below the breastbone. Grasp your fist with the other hand. Give 5 sharp, inward-and-upward thrusts.",
+        "timeIndicator": "5 abdominal thrusts"
+      },
+      {
+        "stepNumber": 4,
+        "instruction": "Alternate between 5 back blows and 5 abdominal thrusts. Check for the object in the mouth after each cycle — remove it only if you can clearly see it.",
+        "timeIndicator": "Repeat cycle"
+      },
+      {
+        "stepNumber": 5,
+        "instruction": "If the person becomes unconscious, call 112 immediately. Lower them carefully to the floor and begin CPR. Each time you open the airway to give breaths, look for the object and remove it if visible.",
+        "timeIndicator": null
+      }
+    ]
+  },
+  {
+    "slug": "burns",
+    "title": "Burns",
+    "icon": "🔥",
+    "shortDescription": "Cool the burn, protect the skin, and know when to seek emergency care immediately.",
+    "warning": "Do NOT use ice, butter, toothpaste, or any home remedy on burns. Never burst blisters. Do not remove clothing stuck to the burn.",
+    "steps": [
+      {
+        "stepNumber": 1,
+        "instruction": "Remove the person from the source of the burn. Remove any jewellery, watches, or belts near the burn area — swelling may occur rapidly. Do not remove clothing that is stuck to the burn.",
+        "timeIndicator": null
+      },
+      {
+        "stepNumber": 2,
+        "instruction": "Cool the burn immediately under cool (not cold) running water. Hold the affected area under the tap for a full 20 minutes. This is the single most important step — cooling reduces tissue damage even if started up to 3 hours later.",
+        "timeIndicator": "20 minutes"
+      },
+      {
+        "stepNumber": 3,
+        "instruction": "Do not use ice, ice water, or iced drinks. Do not apply butter, oil, toothpaste, or any cream. These worsen damage and increase infection risk.",
+        "timeIndicator": null
+      },
+      {
+        "stepNumber": 4,
+        "instruction": "After cooling, loosely cover the burn with a clean, non-fluffy material — cling film is ideal. Do not wrap tightly. Avoid cotton wool or any material with loose fibres.",
+        "timeIndicator": null
+      },
+      {
+        "stepNumber": 5,
+        "instruction": "Do not burst any blisters — they protect against infection. If a blister bursts on its own, clean the area gently and cover loosely.",
+        "timeIndicator": null
+      },
+      {
+        "stepNumber": 6,
+        "instruction": "Go to the emergency room if: the burn is larger than the person's hand; it is on the face, hands, feet, genitals, or a joint; it is deep (white, brown, or black in colour); it was caused by chemicals or electricity; or the person is an infant or elderly.",
+        "timeIndicator": "Go to ER if in doubt"
+      }
+    ]
+  },
+  {
+    "slug": "fractures",
+    "title": "Fractures",
+    "icon": "🦴",
+    "shortDescription": "Immobilise a broken bone, manage pain and swelling, and recognise when to call emergency services.",
+    "warning": "Never attempt to straighten or reposition a suspected broken bone. Moving it incorrectly can cause nerve or blood vessel damage.",
+    "steps": [
+      {
+        "stepNumber": 1,
+        "instruction": "Keep the injured person as still as possible. Do not try to straighten the limb. Tell them not to move.",
+        "timeIndicator": null
+      },
+      {
+        "stepNumber": 2,
+        "instruction": "Call 112 immediately if: the fracture is open (bone visible through skin), the injury is to the head, neck, or spine, the person is unconscious, or blood flow to the limb appears cut off (limb is pale, blue, or numb beyond the injury).",
+        "timeIndicator": null
+      },
+      {
+        "stepNumber": 3,
+        "instruction": "Immobilise the limb using a makeshift splint — a rolled newspaper, stiff cardboard, or folded clothing can work. Pad the splint with soft material and secure it above and below the fracture site. Ensure it does not restrict blood flow.",
+        "timeIndicator": null
+      },
+      {
+        "stepNumber": 4,
+        "instruction": "Apply a cold pack or ice wrapped in a cloth to the area for 20 minutes to reduce swelling and pain. Never put ice directly on skin.",
+        "timeIndicator": "20 minutes"
+      },
+      {
+        "stepNumber": 5,
+        "instruction": "If possible, gently elevate the injured limb above the level of the heart to reduce swelling — only if this does not cause additional pain.",
+        "timeIndicator": null
+      },
+      {
+        "stepNumber": 6,
+        "instruction": "For an open fracture, cover the wound lightly with a clean dressing. Do not push the bone back. Apply gentle pressure around (not on) the wound to control bleeding. Call 112 without delay.",
+        "timeIndicator": null
+      }
+    ]
+  },
+  {
+    "slug": "seizures",
+    "title": "Seizures",
+    "icon": "⚡",
+    "shortDescription": "Protect the person from injury during a seizure and know when to call for emergency help.",
+    "warning": "Never restrain someone during a seizure. Never put anything in their mouth. Do not give water or medication until they are fully conscious.",
+    "steps": [
+      {
+        "stepNumber": 1,
+        "instruction": "Note the time the seizure begins. This is critical — knowing the duration determines the emergency response.",
+        "timeIndicator": "Start timing immediately"
+      },
+      {
+        "stepNumber": 2,
+        "instruction": "Protect them from injury: clear the immediate area of hard or sharp objects. Guide them gently to the floor if they are standing. Place something soft under their head.",
+        "timeIndicator": null
+      },
+      {
+        "stepNumber": 3,
+        "instruction": "Do NOT hold them down or restrain their movements. Do NOT put anything in their mouth — people cannot swallow their tongues during a seizure.",
+        "timeIndicator": null
+      },
+      {
+        "stepNumber": 4,
+        "instruction": "Turn them onto their side (recovery position) once the convulsive movements stop — this prevents choking on saliva or vomit and keeps the airway open.",
+        "timeIndicator": null
+      },
+      {
+        "stepNumber": 5,
+        "instruction": "Stay with them, speak calmly, and reassure them as they regain consciousness. They may be confused, frightened, or tired after the seizure (postictal state). Do not leave them alone.",
+        "timeIndicator": "Stay with them"
+      },
+      {
+        "stepNumber": 6,
+        "instruction": "Call 112 if: the seizure lasts more than 5 minutes, another seizure starts shortly after, they do not regain consciousness, they are injured, pregnant, in water, or have diabetes, or it is their first known seizure.",
+        "timeIndicator": "Call if >5 min"
+      }
+    ]
+  },
+  {
+    "slug": "snakebite",
+    "title": "Snakebite",
+    "icon": "🐍",
+    "shortDescription": "Keep the victim still, immobilise the limb, and reach a hospital as fast as possible for anti-venom.",
+    "warning": "Do NOT suck out the venom, cut the wound, apply a tourniquet, or use electric shock. These methods are dangerous and ineffective.",
+    "steps": [
+      {
+        "stepNumber": 1,
+        "instruction": "Move the person away from the snake. Do not attempt to catch, kill, or handle the snake — further bites risk additional envenomation. You can note the snake's colour, size, or pattern if it is safe to observe from a distance.",
+        "timeIndicator": null
+      },
+      {
+        "stepNumber": 2,
+        "instruction": "Keep the person as still as possible. Muscle movement accelerates venom absorption and spread through the lymphatic system. Have them lie down calmly.",
+        "timeIndicator": null
+      },
+      {
+        "stepNumber": 3,
+        "instruction": "Immobilise the bitten limb below the level of the heart. Use a splint or sling if available. This slows venom spread. Remove all rings, watches, and tight clothing from the affected limb before swelling begins.",
+        "timeIndicator": null
+      },
+      {
+        "stepNumber": 4,
+        "instruction": "Do NOT suck out the venom — this is ineffective and risks oral absorption. Do NOT cut, incise, or apply heat to the bite. Do NOT apply a tourniquet or ligature.",
+        "timeIndicator": null
+      },
+      {
+        "stepNumber": 5,
+        "instruction": "Get to the nearest hospital with access to anti-venom immediately. Call ahead if possible. Transport the patient lying down. Do not give food, water, alcohol, or pain medication.",
+        "timeIndicator": "Get to hospital — urgently"
+      },
+      {
+        "stepNumber": 6,
+        "instruction": "Monitor breathing and consciousness en route. If the person stops breathing, begin rescue breaths. Note the time of the bite and any symptoms that develop (swelling, pain, difficulty breathing, vision changes) to report to doctors.",
+        "timeIndicator": null
+      }
+    ]
+  },
+  {
+    "slug": "heat-stroke",
+    "title": "Heat Stroke",
+    "icon": "🌡️",
+    "shortDescription": "Move to a cool area, lower body temperature rapidly, and call 112 — heat stroke is a life-threatening emergency.",
+    "warning": "Heat stroke is not the same as heat exhaustion. If the person is confused, unconscious, or has stopped sweating despite being very hot, it is heat stroke — call 112 immediately.",
+    "steps": [
+      {
+        "stepNumber": 1,
+        "instruction": "Call 112 immediately — heat stroke can cause organ failure and death within minutes if not treated. Do not wait for symptoms to improve.",
+        "timeIndicator": null
+      },
+      {
+        "stepNumber": 2,
+        "instruction": "Move the person to a cool, shaded area or an air-conditioned space as quickly as possible. Have them lie down with their legs slightly elevated if they are conscious.",
+        "timeIndicator": null
+      },
+      {
+        "stepNumber": 3,
+        "instruction": "Remove excess clothing — jackets, helmets, shoes, socks. The goal is to expose skin to enable rapid cooling.",
+        "timeIndicator": null
+      },
+      {
+        "stepNumber": 4,
+        "instruction": "Cool the body quickly: apply cool (not ice cold) water to the skin, especially on the neck, armpits, and groin where large blood vessels are close to the surface. Fan vigorously to enhance evaporative cooling.",
+        "timeIndicator": "Cool rapidly"
+      },
+      {
+        "stepNumber": 5,
+        "instruction": "If the person is fully conscious and able to swallow safely, give small sips of cool water. Do not give fluids to someone who is confused, drowsy, or unconscious.",
+        "timeIndicator": null
+      },
+      {
+        "stepNumber": 6,
+        "instruction": "Continue cooling until emergency services arrive. Do not leave the person alone. Monitor their breathing and responsiveness. If they lose consciousness and stop breathing normally, begin CPR.",
+        "timeIndicator": "Continue until help arrives"
+      }
+    ]
+  }
+]
