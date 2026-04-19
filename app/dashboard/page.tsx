@@ -142,7 +142,7 @@ export default async function DashboardPage() {
 
         {/* ── START NEW CHECK ─────────────────────────────────────────────── */}
         <a
-          href="/check"
+          href="/checker"
           className="block bg-teal-600 hover:bg-teal-700 active:bg-teal-800
                      text-white rounded-xl px-6 py-3 font-medium w-full mt-6
                      text-center transition-colors shadow-sm"
@@ -258,7 +258,7 @@ export default async function DashboardPage() {
           )}
 
           <a
-            href="/profile"
+            href="/dashboard/profile"
             className="inline-block mt-4 text-sm text-teal-600
                        hover:text-teal-800 font-medium transition-colors"
           >
