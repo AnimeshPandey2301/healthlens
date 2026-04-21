@@ -132,3 +132,9 @@
     @apply font-sans;
   }
 }
+
+/* ── Diet Plan page helpers ── */
+.dp-tab-link { color: #64748b; text-decoration: none; }
+.dp-tab-link:hover { color: #16a34a; }
+.dp-meal-card { transition: transform .2s, box-shadow .2s; }
+.dp-meal-card:hover { transform: translateY(-4px); box-shadow: 0 10px 40px rgba(0,0,0,.1); }

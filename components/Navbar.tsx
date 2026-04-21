@@ -35,6 +35,12 @@ export default async function Navbar() {
             Emergency Guide
           </Link>
           <Link
+            href="/diet-plan"
+            className="text-sm text-gray-600 hover:text-teal-600 font-medium transition-colors"
+          >
+            Diet Plan
+          </Link>
+          <Link
             href="/doctors"
             className="text-sm text-gray-600 hover:text-teal-600 font-medium transition-colors"
           >

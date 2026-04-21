@@ -1,0 +1,1704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vegetarian Diet Plan by Age Group | HealthLens</title>
+  <meta name="description" content="A comprehensive, science-backed vegetarian diet plan tailored by age group — from toddlers to seniors — for optimal health and nutrition." />
+  <style>
+    /* ============================================
+       DESIGN SYSTEM & TOKENS
+    ============================================ */
+    :root {
+      --green-50:  #f0fdf4;
+      --green-100: #dcfce7;
+      --green-200: #bbf7d0;
+      --green-300: #86efac;
+      --green-400: #4ade80;
+      --green-500: #22c55e;
+      --green-600: #16a34a;
+      --green-700: #15803d;
+      --green-800: #166534;
+      --green-900: #14532d;
+
+      --emerald-400: #34d399;
+      --emerald-500: #10b981;
+      --emerald-600: #059669;
+
+      --amber-400:  #fbbf24;
+      --amber-500:  #f59e0b;
+      --amber-600:  #d97706;
+
+      --rose-400: #fb7185;
+      --rose-500: #f43f5e;
+
+      --sky-400: #38bdf8;
+      --sky-500: #0ea5e9;
+
+      --violet-400: #a78bfa;
+      --violet-500: #8b5cf6;
+
+      --orange-400: #fb923c;
+      --orange-500: #f97316;
+
+      --slate-50:  #f8fafc;
+      --slate-100: #f1f5f9;
+      --slate-200: #e2e8f0;
+      --slate-300: #cbd5e1;
+      --slate-400: #94a3b8;
+      --slate-500: #64748b;
+      --slate-600: #475569;
+      --slate-700: #334155;
+      --slate-800: #1e293b;
+      --slate-900: #0f172a;
+
+      --radius-sm:   8px;
+      --radius-md:   14px;
+      --radius-lg:   20px;
+      --radius-xl:   28px;
+      --radius-full: 9999px;
+
+      --shadow-sm: 0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.06);
+      --shadow-md: 0 4px 16px rgba(0,0,0,.10), 0 2px 6px rgba(0,0,0,.06);
+      --shadow-lg: 0 10px 40px rgba(0,0,0,.12), 0 4px 12px rgba(0,0,0,.08);
+      --shadow-xl: 0 20px 60px rgba(0,0,0,.15), 0 8px 20px rgba(0,0,0,.10);
+
+      --font: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+      /* sticky heights — used so calc() can reference them consistently */
+      --banner-h: 40px;
+      --navbar-h: 64px;
+      --tabs-h:   48px;
+    }
+
+    /* ============================================
+       RESET & BASE
+    ============================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: var(--font);
+      background: var(--slate-50);
+      color: var(--slate-800);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* ============================================
+       EMERGENCY BANNER
+    ============================================ */
+    .emergency-banner {
+      background: linear-gradient(90deg, #b91c1c 0%, #dc2626 50%, #b91c1c 100%);
+      color: #fff;
+      text-align: center;
+      padding: 10px 16px;
+      font-size: .85rem;
+      font-weight: 600;
+      letter-spacing: .03em;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: var(--banner-h);
+      animation: pulseBanner 3s ease-in-out infinite;
+    }
+
+    @keyframes pulseBanner {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: .88; }
+    }
+
+    .emergency-banner .pulse-dot {
+      width: 10px;
+      height: 10px;
+      background: #fff;
+      border-radius: 50%;
+      flex-shrink: 0;
+      animation: blink 1.2s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: .4; transform: scale(.7); }
+    }
+
+    .emergency-banner a {
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 800;
+      border-bottom: 2px solid rgba(255,255,255,.6);
+      transition: border-color .2s;
+    }
+    .emergency-banner a:hover { border-color: #fff; }
+
+    /* ============================================
+       NAVBAR
+    ============================================ */
+    .navbar {
+      background: rgba(255,255,255,.95);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--slate-200);
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: var(--navbar-h);
+      position: sticky;
+      top: var(--banner-h);   /* FIX: was hardcoded 40px */
+      z-index: 900;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: var(--green-700);
+    }
+
+    .navbar-icon {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, var(--green-500), var(--emerald-500));
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    .navbar-links {
+      display: flex;
+      gap: 6px;
+    }
+
+    .navbar-links a {
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--slate-600);
+      padding: 6px 12px;
+      border-radius: var(--radius-full);
+      transition: background .2s, color .2s;
+    }
+    .navbar-links a:hover {
+      background: var(--green-50);
+      color: var(--green-700);
+    }
+
+    /* ============================================
+       HERO
+    ============================================ */
+    .hero {
+      background: linear-gradient(135deg,
+        #064e3b 0%,
+        #065f46 30%,
+        #047857 60%,
+        #059669 100%
+      );
+      color: #fff;
+      padding: 80px 24px 100px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 50%, rgba(52,211,153,.25) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(74,222,128,.2)  0%, transparent 40%),
+        radial-gradient(circle at 50% 90%, rgba(16,185,129,.15) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    /* decorative leaf blobs — FIX: each has its own consistent rotation in keyframe */
+    .hero-deco {
+      position: absolute;
+      border-radius: 50% 10% 50% 10%;
+      opacity: .12;
+      pointer-events: none;
+    }
+    .hero-deco-1 {
+      width: 200px; height: 200px;
+      background: var(--green-300);
+      top: -40px; left: -40px;
+      animation: floatA 7s ease-in-out infinite;
+    }
+    .hero-deco-2 {
+      width: 140px; height: 140px;
+      background: var(--emerald-400);
+      bottom: 20px; right: 10%;
+      animation: floatB 9s ease-in-out infinite;
+    }
+    .hero-deco-3 {
+      width: 100px; height: 100px;
+      background: var(--green-200);
+      top: 30%; right: 5%;
+      animation: floatC 11s ease-in-out infinite;
+    }
+
+    /* FIX: separate keyframes so each blob rotates consistently */
+    @keyframes floatA {
+      0%, 100% { transform: translateY(0)    rotate(30deg);  }
+      50%       { transform: translateY(-20px) rotate(30deg); }
+    }
+    @keyframes floatB {
+      0%, 100% { transform: translateY(0)    rotate(-20deg);  }
+      50%       { transform: translateY(-18px) rotate(-20deg); }
+    }
+    @keyframes floatC {
+      0%, 100% { transform: translateY(0)    rotate(50deg);  }
+      50%       { transform: translateY(-15px) rotate(50deg); }
+    }
+
+    .hero-content { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.3);
+      color: #d1fae5;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: var(--radius-full);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 18px;
+      letter-spacing: -.02em;
+    }
+
+    .hero h1 span { color: var(--emerald-400); }
+
+    .hero-sub {
+      font-size: clamp(.95rem, 2vw, 1.15rem);
+      opacity: .9;
+      max-width: 580px;
+      margin: 0 auto 36px;
+    }
+
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .hero-pill {
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.25);
+      color: #fff;
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      font-size: .82rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: background .25s;
+    }
+    .hero-pill:hover { background: rgba(255,255,255,.24); }
+
+    /* wave divider */
+    .wave {
+      display: block;
+      margin-top: -2px;
+      width: 100%;
+      height: auto;
+    }
+
+    /* ============================================
+       SECTION WRAPPER
+    ============================================ */
+    .section {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 64px 24px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: .75rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--green-600);
+      background: var(--green-50);
+      border: 1px solid var(--green-200);
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 800;
+      color: var(--slate-900);
+      letter-spacing: -.025em;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .section-desc {
+      font-size: 1rem;
+      color: var(--slate-500);
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    /* ============================================
+       QUICK STATS BAR
+    ============================================ */
+    .stats-bar {
+      background: linear-gradient(135deg, var(--green-700) 0%, var(--emerald-600) 100%);
+      color: #fff;
+    }
+
+    .stats-bar .section {
+      padding: 40px 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 24px;
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--emerald-400);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      font-size: .82rem;
+      font-weight: 600;
+      opacity: .85;
+      letter-spacing: .03em;
+    }
+
+    /* ============================================
+       AGE GROUP NAVIGATION TABS
+    ============================================ */
+    .age-tabs-wrapper {
+      background: #fff;
+      border-bottom: 1px solid var(--slate-200);
+      position: sticky;
+      /* FIX: use calc() to stack below banner + navbar */
+      top: calc(var(--banner-h) + var(--navbar-h));
+      z-index: 800;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .age-tabs {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      gap: 4px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .age-tabs::-webkit-scrollbar { display: none; }
+
+    .age-tab {
+      flex-shrink: 0;
+      padding: 14px 20px;
+      font-size: .85rem;
+      font-weight: 700;
+      color: var(--slate-500);
+      border-bottom: 3px solid transparent;
+      cursor: pointer;
+      transition: color .2s, border-color .2s;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: none;
+      border-left: none;
+      border-right: none;
+      border-top: none;
+    }
+
+    .age-tab:hover { color: var(--green-600); }
+
+    .age-tab.active {
+      color: var(--green-600);
+      border-bottom-color: var(--green-500);
+    }
+
+    /* ============================================
+       AGE GROUP CARDS
+    ============================================ */
+    #diet-groups { background: var(--slate-50); }
+
+    .age-group {
+      margin-bottom: 64px;
+      /* FIX: account for all three sticky layers */
+      scroll-margin-top: calc(var(--banner-h) + var(--navbar-h) + var(--tabs-h) + 16px);
+    }
+
+    .age-group-header {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+
+    .age-group-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      flex-shrink: 0;
+    }
+
+    .age-group-meta { flex: 1; }
+
+    .age-group-label {
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      opacity: .7;
+      margin-bottom: 4px;
+    }
+
+    .age-group-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--slate-900);
+      letter-spacing: -.02em;
+    }
+
+    .age-group-sub {
+      font-size: .88rem;
+      color: var(--slate-500);
+      margin-top: 2px;
+    }
+
+    .diet-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    /* meal card */
+    .meal-card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--slate-200);
+      overflow: hidden;
+      transition: transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s;
+    }
+
+    .meal-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .meal-card-header {
+      padding: 18px 20px 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .meal-time-badge {
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+    }
+
+    .meal-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--slate-800);
+    }
+
+    .meal-card-body { padding: 0 20px 18px; }
+
+    .meal-items {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .meal-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: .88rem;
+      color: var(--slate-700);
+    }
+
+    .meal-item-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      margin-top: 6px;
+      flex-shrink: 0;
+    }
+
+    .meal-tip {
+      margin-top: 14px;
+      padding: 10px 14px;
+      background: var(--slate-50);
+      border-radius: var(--radius-sm);
+      font-size: .8rem;
+      color: var(--slate-500);
+      border-left: 3px solid var(--green-400);
+    }
+
+    /* nutrition chip row */
+    .nutrition-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding: 14px 20px 18px;
+      border-top: 1px solid var(--slate-100);
+    }
+
+    .nutrition-chip {
+      font-size: .72rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+    }
+
+    /* ============================================
+       NUTRITION TABLE
+    ============================================ */
+    .table-wrapper {
+      overflow-x: auto;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--slate-200);
+      box-shadow: var(--shadow-sm);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+    }
+
+    thead tr {
+      background: linear-gradient(90deg, var(--green-700), var(--emerald-600));
+      color: #fff;
+    }
+
+    th {
+      padding: 14px 18px;
+      text-align: left;
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    td {
+      padding: 13px 18px;
+      font-size: .88rem;
+      color: var(--slate-700);
+      border-bottom: 1px solid var(--slate-100);
+    }
+
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:nth-child(even)  { background: var(--slate-50); }
+    tbody tr { transition: background .15s; }
+    tbody tr:hover { background: var(--green-50); }
+
+    .badge-pill {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: var(--radius-full);
+      font-size: .74rem;
+      font-weight: 700;
+    }
+
+    /* ============================================
+       FOODS TO AVOID SECTION
+    ============================================ */
+    .avoid-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .avoid-card {
+      background: #fff;
+      border: 1px solid var(--rose-500);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .avoid-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+
+    .avoid-icon   { font-size: 1.4rem; flex-shrink: 0; }
+    .avoid-title  { font-size: .9rem; font-weight: 700; color: var(--rose-500); margin-bottom: 4px; }
+    .avoid-desc   { font-size: .8rem; color: var(--slate-500); line-height: 1.5; }
+
+    /* ============================================
+       TIPS SECTION
+    ============================================ */
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .tip-card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      border: 1px solid var(--slate-200);
+      transition: transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s;
+      position: relative;
+      overflow: hidden;
+    }
+    /* FIX: give the default tip-card a visible top accent */
+    .tip-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: var(--green-400);
+    }
+    .tip-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+
+    .tip-card-icon  { font-size: 2rem; margin-bottom: 14px; }
+    .tip-card-title { font-size: 1rem; font-weight: 700; color: var(--slate-800); margin-bottom: 8px; }
+    .tip-card-desc  { font-size: .86rem; color: var(--slate-500); line-height: 1.6; }
+
+    /* ============================================
+       EMERGENCY CTA
+    ============================================ */
+    .emergency-cta {
+      background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 50%, #b91c1c 100%);
+      color: #fff;
+      padding: 60px 24px;
+      text-align: center;
+    }
+
+    .emergency-cta-inner { max-width: 600px; margin: 0 auto; }
+
+    .emergency-cta-icon {
+      font-size: 3rem;
+      margin-bottom: 16px;
+      display: block;
+      animation: heartbeat 1.5s ease-in-out infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 57%, 100% { transform: scale(1); }
+      14%            { transform: scale(1.15); }
+      28%            { transform: scale(1); }
+      42%            { transform: scale(1.1); }
+    }
+
+    .emergency-cta h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 10px; }
+    .emergency-cta p  { opacity: .9; margin-bottom: 28px; font-size: .95rem; }
+
+    .emergency-call-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #fff;
+      color: #b91c1c;
+      font-size: 1.4rem;
+      font-weight: 900;
+      padding: 16px 40px;
+      border-radius: var(--radius-full);
+      box-shadow: 0 0 0 4px rgba(255,255,255,.2), var(--shadow-lg);
+      transition: transform .2s, box-shadow .2s;
+      letter-spacing: .04em;
+    }
+    .emergency-call-btn:hover {
+      transform: scale(1.04);
+      box-shadow: 0 0 0 8px rgba(255,255,255,.2), var(--shadow-xl);
+    }
+
+    /* ============================================
+       FOOTER
+    ============================================ */
+    footer {
+      background: var(--slate-900);
+      color: var(--slate-400);
+      padding: 40px 24px;
+      text-align: center;
+    }
+
+    .footer-logo    { font-size: 1.2rem; font-weight: 800; color: var(--green-400); margin-bottom: 10px; }
+    .footer-tagline { font-size: .82rem; margin-bottom: 20px; }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .footer-links a { font-size: .8rem; color: var(--slate-500); transition: color .2s; }
+    .footer-links a:hover { color: var(--green-400); }
+
+    .footer-copy { font-size: .75rem; color: var(--slate-600); }
+
+    /* ============================================
+       DIVIDER
+    ============================================ */
+    .divider {
+      height: 1px;
+      background: var(--slate-200);
+      margin: 0 24px;
+    }
+
+    /* ============================================
+       SCROLL-FADE ANIMATION
+    ============================================ */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .55s ease, transform .55s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ============================================
+       REDUCED MOTION — accessibility fix
+    ============================================ */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+      .fade-in { opacity: 1; transform: none; }
+    }
+
+    /* ============================================
+       RESPONSIVE
+    ============================================ */
+    @media (max-width: 640px) {
+      :root {
+        --banner-h: 48px;   /* banner wraps on small screens */
+        --navbar-h: 56px;
+        --tabs-h:   44px;
+      }
+      .navbar-links  { display: none; }
+      .hero          { padding: 60px 16px 80px; }
+      .section       { padding: 48px 16px; }
+      .age-group-header { flex-direction: column; align-items: flex-start; }
+      .diet-grid     { grid-template-columns: 1fr; }
+      .emergency-call-btn { font-size: 1.1rem; padding: 14px 28px; }
+    }
+
+    @media (max-width: 480px) {
+      .emergency-banner { font-size: .75rem; gap: 6px; flex-wrap: wrap; }
+      .stats-bar .section { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ============================================
+       PRINT STYLES
+    ============================================ */
+    @media print {
+      .emergency-banner, .navbar, .age-tabs-wrapper { position: static; }
+      .hero-deco-1, .hero-deco-2, .hero-deco-3 { display: none; }
+      .fade-in { opacity: 1; transform: none; }
+      .meal-card:hover, .tip-card:hover, .avoid-card:hover { transform: none; box-shadow: none; }
+    }
+
+    /* ============================================
+       COLOR THEMES FOR AGE GROUPS
+    ============================================ */
+    /* Toddlers: amber */
+    .theme-amber .age-group-icon  { background: linear-gradient(135deg, #fbbf24, #f59e0b); }
+    .theme-amber .age-group-label { color: var(--amber-600); }
+    .theme-amber .age-group-title { color: var(--amber-600); }
+    .theme-amber .meal-time-badge { background: #fef3c7; color: var(--amber-600); }
+    .theme-amber .meal-item-dot   { background: var(--amber-400); }
+    .theme-amber .tip-card::before{ background: var(--amber-400); }
+    .theme-amber .nutrition-chip  { background: #fef3c7; color: var(--amber-600); }
+
+    /* Children: sky */
+    .theme-sky .age-group-icon  { background: linear-gradient(135deg, #38bdf8, #0ea5e9); }
+    .theme-sky .age-group-label { color: var(--sky-500); }
+    .theme-sky .age-group-title { color: var(--sky-500); }
+    .theme-sky .meal-time-badge { background: #e0f2fe; color: var(--sky-500); }
+    .theme-sky .meal-item-dot   { background: var(--sky-400); }
+    .theme-sky .tip-card::before{ background: var(--sky-400); }
+    .theme-sky .nutrition-chip  { background: #e0f2fe; color: var(--sky-500); }
+
+    /* Teens: violet */
+    .theme-violet .age-group-icon  { background: linear-gradient(135deg, #a78bfa, #8b5cf6); }
+    .theme-violet .age-group-label { color: var(--violet-500); }
+    .theme-violet .age-group-title { color: var(--violet-500); }
+    .theme-violet .meal-time-badge { background: #ede9fe; color: var(--violet-500); }
+    .theme-violet .meal-item-dot   { background: var(--violet-400); }
+    .theme-violet .tip-card::before{ background: var(--violet-400); }
+    .theme-violet .nutrition-chip  { background: #ede9fe; color: var(--violet-500); }
+
+    /* Adults: green */
+    .theme-green .age-group-icon  { background: linear-gradient(135deg, #4ade80, #22c55e); }
+    .theme-green .age-group-label { color: var(--green-600); }
+    .theme-green .age-group-title { color: var(--green-600); }
+    .theme-green .meal-time-badge { background: var(--green-100); color: var(--green-700); }
+    .theme-green .meal-item-dot   { background: var(--green-500); }
+    .theme-green .tip-card::before{ background: var(--green-500); }
+    .theme-green .nutrition-chip  { background: var(--green-100); color: var(--green-700); }
+
+    /* Seniors: orange */
+    .theme-orange .age-group-icon  { background: linear-gradient(135deg, #fb923c, #f97316); }
+    .theme-orange .age-group-label { color: var(--orange-500); }
+    .theme-orange .age-group-title { color: var(--orange-500); }
+    .theme-orange .meal-time-badge { background: #ffedd5; color: var(--orange-500); }
+    .theme-orange .meal-item-dot   { background: var(--orange-400); }
+    .theme-orange .tip-card::before{ background: var(--orange-400); }
+    .theme-orange .nutrition-chip  { background: #ffedd5; color: var(--orange-500); }
+  </style>
+</head>
+<body>
+
+  <!-- EMERGENCY BANNER -->
+  <div class="emergency-banner" role="alert" aria-label="Emergency contact information">
+    <span class="pulse-dot" aria-hidden="true"></span>
+    🚨 Medical Emergency? Call&nbsp;<a href="tel:104" aria-label="Call emergency number 104">104</a>&nbsp;immediately &mdash; Available 24/7
+    <span class="pulse-dot" aria-hidden="true"></span>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" aria-label="Main navigation">
+    <div class="navbar-brand">
+      <div class="navbar-icon" aria-hidden="true">🥗</div>
+      VegDiet Guide
+    </div>
+    <div class="navbar-links">
+      <a href="#diet-groups">Age Plans</a>
+      <a href="#nutrition-table">Nutrition</a>
+      <a href="#avoid">Avoid</a>
+      <a href="#tips">Tips</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Hero section">
+    <div class="hero-deco-1 hero-deco" aria-hidden="true"></div>
+    <div class="hero-deco-2 hero-deco" aria-hidden="true"></div>
+    <div class="hero-deco-3 hero-deco" aria-hidden="true"></div>
+    <div class="hero-content">
+      <div class="hero-badge">🌱 Science-backed nutrition</div>
+      <h1>Vegetarian Diet Plan<br><span>by Age Group</span></h1>
+      <p class="hero-sub">
+        Evidence-based meal plans tailored for every stage of life &mdash; from toddlers to seniors.
+        Fuel your body, nourish your mind.
+      </p>
+      <div class="hero-pills">
+        <span class="hero-pill">🧒 Toddlers 1&ndash;3 yrs</span>
+        <span class="hero-pill">👦 Children 4&ndash;12 yrs</span>
+        <span class="hero-pill">🧑 Teens 13&ndash;18 yrs</span>
+        <span class="hero-pill">🧑 Adults 19&ndash;59 yrs</span>
+        <span class="hero-pill">👴 Seniors 60+ yrs</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAVE -->
+  <svg class="wave" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#f8fafc"/>
+  </svg>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar" aria-label="Key statistics">
+    <div class="section">
+      <div class="stat-item">
+        <div class="stat-value">5</div>
+        <div class="stat-label">Age Groups Covered</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">40+</div>
+        <div class="stat-label">Curated Meal Ideas</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">100%</div>
+        <div class="stat-label">Plant-Based</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">104</div>
+        <div class="stat-label">Emergency Helpline</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AGE TABS -->
+  <div class="age-tabs-wrapper" role="navigation" aria-label="Jump to age group">
+    <div class="age-tabs" role="tablist">
+      <button class="age-tab active" role="tab" aria-selected="true"  onclick="scrollToGroup('toddlers', this)">🧒 Toddlers</button>
+      <button class="age-tab"        role="tab" aria-selected="false" onclick="scrollToGroup('children', this)">👦 Children</button>
+      <button class="age-tab"        role="tab" aria-selected="false" onclick="scrollToGroup('teens',    this)">🧑 Teens</button>
+      <button class="age-tab"        role="tab" aria-selected="false" onclick="scrollToGroup('adults',   this)">🧑 Adults</button>
+      <button class="age-tab"        role="tab" aria-selected="false" onclick="scrollToGroup('seniors',  this)">👴 Seniors</button>
+    </div>
+  </div>
+
+  <!-- ===== DIET GROUPS ===== -->
+  <section id="diet-groups" aria-label="Diet plans by age group">
+    <div class="section">
+
+      <!-- ---- TODDLERS ---- -->
+      <div class="age-group theme-amber fade-in" id="toddlers" aria-label="Toddlers diet plan">
+        <div class="age-group-header">
+          <div class="age-group-icon" aria-hidden="true">🧒</div>
+          <div class="age-group-meta">
+            <div class="age-group-label">Ages 1 &ndash; 3 Years</div>
+            <div class="age-group-title">Toddlers</div>
+            <div class="age-group-sub">Caloric need ~1,000&ndash;1,400 kcal/day &middot; Focus: growth, brain development</div>
+          </div>
+        </div>
+        <div class="diet-grid">
+          <div class="meal-card">
+            <div class="meal-card-header">
+              <span class="meal-time-badge">Breakfast</span>
+              <span class="meal-title">Morning Fuel</span>
+            </div>
+            <div class="meal-card-body">
+              <ul class="meal-items">
+                <li class="meal-item"><span class="meal-item-dot"></span>Soft oatmeal porridge with mashed banana &amp; a drizzle of honey (avoid honey under 1 yr)</li>
+                <li class="meal-item"><span class="meal-item-dot"></span>Whole-milk yogurt with pureed fruit</li>
+                <li class="meal-item"><span class="meal-item-dot"></span>Small glass of fortified milk (150 ml)</li>
+              </ul>
+              <div class="meal-tip">💡 Offer finger-food-sized pieces to encourage self-feeding.</div>
+            </div>
+            <div class="nutrition-chips">
+              <span class="nutrition-chip">Calcium</span>
+              <span class="nutrition-chip">Iron</span>
+              <span class="nutrition-chip">Vitamin D</span>
+            </div>
+          </div>
+          <div class="meal-card">
+            <div class="meal-card-header">
+              <span class="meal-time-badge">Lunch</span>
+              <span class="meal-title">Midday Plate</span>
+            </div>
+            <div class="meal-card-body">
+              <ul class="meal-items">
+                <li class="meal-item"><span class="meal-item-dot"></span>Mashed dal (lentil soup) with soft-cooked rice</li>
+                <li class="meal-item"><span class="meal-item-dot"></span>Steamed &amp; mashed sweet potato cubes</li>
+                <li class="meal-item"><span class="meal-item-dot"></span>Soft cooked spinach with ghee</li>
+              </ul>
+              <div class="meal-tip">💡 Add ghee for healthy fats essential for brain development.</div>
+            </div>
+            <div class="nutrition-chips">
+              <span class="nutrition-chip">Protein</span>
+              <span class="nutrition-chip">Folate</span>
+              <span class="nutrition-chip">Healthy Fats</span>
+            </div>
+          </div>
+          <div class="meal-card">
+            <div class="meal-card-header">
+              <span class="meal-time-badge">Snack</span>
+              <span class="meal-title">Afternoon Bites</span>
+            </div>
+            <div class="meal-card-body">
+              <ul class="meal-items">
+                <li class="meal-item"><span class="meal-item-dot"></span>Ripe banana or soft mango slices</li>
+                <li class="meal-item"><span class="meal-item-dot"></span>Small handful of puffed rice (muri)</li>
+                <li class="meal-item"><span class="meal-item-dot"></span>Diluted fruit juice (no added sugar)</li>
+              </ul>
+              <div class="meal-tip">💡 Keep snacks small &mdash; toddler stomachs are tiny!</div>
+            </div>
+            <div class="nutrition-chips">
+              <span class="nutrition-chip">Vitamin C</span>
+              <span class="nutrition-chip">Fibre</span>
+            </div>
+          </div>
+          <div class="meal-card">
+            <div class="meal-card-header">
+              <span class="meal-time-badge">Dinner</span>
+              <span class="meal-title">Evening Meal</span>
+            </div>
+            <div class="meal-card-body">
+              <ul class="meal-items">
+                <li class="meal-item"><span class="meal-item-dot"></span>Khichdi (rice + moong dal) with vegetable pur&eacute;e</li>
+                <li class="meal-item"><span class="meal-item-dot"></span>Soft roti with mashed paneer &amp; spinach filling</li>
+                <li class="meal-item"><span class="meal-item-dot"></span>Warm milk at bedtime (200 ml)</li>
+              </ul>
+              <div class="meal-tip">💡 Dinner 2&ndash;3 hours before bedtime aids restful sleep.</div>
+            </div>
+            <div class="nutrition-chips">
+              <span class="nutrition-chip">Protein</span>
+              <span class="nutrition-chip">Calcium</span>
+              <span class="nutrition-chip">Zinc</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- ---- CHILDREN ---- -->
+      <div class="age-group theme-sky fade-in" id="children" aria-label="Children diet plan" style="margin-top:48px">
+        <div class="age-group-header">
+          <div class="age-group-icon" aria-hidden="true">👦</div>
+          <div class="age-group-meta">
+            <div class="age-group-label">Ages 4 &ndash; 12 Years</div>
+            <div class="age-group-title">Children</div>
+            <div class="age-group-sub">Caloric need ~1,400&ndash;2,200 kcal/day &middot; Focus: growth, immunity, concentration</div>
+          </div>
+        </div>
+        <div class="diet-grid">
+          <div class="meal-card">
+            <div class="meal-card-header">
+              <span class="meal-time-badge">Breakfast</span>
+              <span class="meal-title">Rise &amp; Shine</span>
+            </div>
+            <div class="meal-card-body">
+              <ul class="meal-items">
+                <li class="meal-item"><span class="meal-item-dot"></span>Whole-wheat toast with peanut butter &amp; sliced banana</li>
+                <li class="meal-item"><span class="meal-item-dot"></span>Glass of fortified milk or soy milk</li>
+                <li class="meal-item"><span class="meal-item-dot"></span>A handful of mixed berries or orange slices</li>
+              </ul>
+              <div class="meal-tip">💡 Protein + complex carbs = sustained focus in school.</div>
+            </div>
+            <div class="nutrition-chips">
+              <span class="nutrition-chip">Calcium</span>
+              <span class="nutrition-chip">Vitamin C</span>
+              <span class="nutrition-chip">Fibre</span>
+            </div>
+          </div>
+          <div class="meal-card">
+            <div class="meal-card-header">
+              <span class="meal-time-badge">Lunch</span>
+              <span class="meal-title">School Lunchbox</span>
+            </div>
+            <div class="meal-card-body">
+              <ul class="meal-items">
+                <li class="meal-item"><span class="meal-item-dot"></span>Paneer paratha with mint chutney</li>
+                <li class="meal-item"><span class="meal-item-dot"></span>Rajma (kidney bean) curry &amp; steamed rice</li>
+                <li class="meal-item"><span class="meal-item-dot"></span>Fresh cucumber and carrot sticks</li>
+              </ul>
+              <div class="meal-tip">💡 Legumes supply iron that supports cognitive development.</div>
+            </div>
+            <div class="nutrition-chips">
+              <span class="nutrition-chip">Iron</span>
+              <span class="nutrition-chip">Protein</span>
+              <span class="nutrition-chip">B6</span>
+            </div>
+          </div>
+          <div class="meal-card">
+            <div class="meal-card-header">
+              <span class="meal-time-badge">Snack</span>
+              <span class="meal-title">After-School Plate</span>
+            </div>
+            <div class="meal-card-body">
+              <ul class="meal-items">
+                <li class="meal-item"><span class="meal-item-dot"></span>Roasted chana (chickpeas) with lemon &amp; spices</li>
+                <li class="meal-item"><span class="meal-item-dot"></span>Greek yogurt with honey drizzle</li>
+                <li class="meal-item"><span class="meal-item-dot"></span>Homemade trail mix &mdash; nuts, raisins &amp; seeds</li>
+              </ul>
+              <div class="meal-tip">💡 Protein-rich snacks curb pre-dinner junk food cravings.</div>
+            </div>
+            <div class="nutrition-chips">
+              <span class="nutrition-chip">Protein</span>
+              <span class="nutrition-chip">Healthy Fats</span>
+            </div>
+          </div>
+          <div class="meal-card">
+            <div class="meal-card-header">
+              <span class="meal-time-badge">Dinner</span>
+              <span class="meal-title">Family Dinner</span>
+            </div>
+            <div class="meal-card-body">
+              <ul class="meal-items">
+                <li class="meal-item"><span class="meal-item-dot"></span>Vegetable biryani with raita</li>
+                <li class="meal-item"><span class="meal-item-dot"></span>Dal tadka (tempered lentils) with chapati</li>
+                <li class="meal-item"><span class="meal-item-dot"></span>Steamed broccoli &amp; peas stir-fry</li>
+              </ul>
+              <div class="meal-tip">💡 Pair iron-rich foods with Vitamin C to boost absorption.</div>
+            </div>
+            <div class="nutrition-chips">
+              <span class="nutrition-chip">Iron</span>
+              <span class="nutrition-chip">Folate</span>
+              <span class="nutrition-chip">Zinc</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- ---- TEENS ---- -->
+      <div class="age-group theme-violet fade-in" id="teens" aria-label="Teenagers diet plan" style="margin-top:48px">
+        <div class="age-group-header">
+          <div class="age-group-icon" aria-hidden="true">🧑</div>
+          <div class="age-group-meta">
+            <div class="age-group-label">Ages 13 &ndash; 18 Years</div>
+            <div class="age-group-title">Teenagers</div>
+            <div class="age-group-sub">Caloric need ~2,200&ndash;3,000 kcal/day &middot; Focus: bone density, hormones, energy</div>
+          </div>
+        </div>
+        <div class="diet-grid">
+          <div class="meal-card">
+            <div class="meal-card-header">
+              <span class="meal-time-badge">Breakfast</span>
+              <span class="meal-title">Power Start</span>
+            </div>
+            <div class="meal-card-body">
+              <ul class="meal-items">
+                <li class="meal-item"><span class="meal-item-dot"></span>Smoothie bowl &mdash; blended mango, banana, spinach topped with granola &amp; seeds</li>
+                <li class="meal-item"><span class="meal-item-dot"></span>Two boiled eggs (ovo-vegetarian) or tofu scramble</li>
+                <li class="meal-item"><span class="meal-item-dot"></span>Glass of fortified orange juice</li>
+              </ul>
+              <div class="meal-tip">💡 Calcium &amp; Vitamin D are critical during peak bone-building years.</div>
+            </div>
+            <div class="nutrition-chips">
+              <span class="nutrition-chip">Calcium</span>
+              <span class="nutrition-chip">Vitamin D</span>
+              <span class="nutrition-chip">Protein</span>
+            </div>
+          </div>
+          <div class="meal-card">
+            <div class="meal-card-header">
+              <span class="meal-time-badge">Lunch</span>
+              <span class="meal-title">Canteen-Proof Meal</span>
+            </div>
+            <div class="meal-card-body">
+              <ul class="meal-items">
+                <li class="meal-item"><span class="meal-item-dot"></span>Whole-grain wrap with hummus, avocado, tomato &amp; lettuce</li>
+                <li class="meal-item"><span class="meal-item-dot"></span>Chickpea salad with olive oil &amp; lemon dressing</li>
+                <li class="meal-item"><span class="meal-item-dot"></span>Low-fat yogurt or a piece of cheese</li>
+              </ul>
+              <div class="meal-tip">💡 Pack iron + Vitamin C together to fight teen anaemia.</div>
+            </div>
+            <div class="nutrition-chips">
+              <span class="nutrition-chip">Iron</span>
+              <span class="nutrition-chip">Vitamin C</span>
+              <span class="nutrition-chip">Healthy Fats</span>
+            </div>
+          </div>
+          <div class="meal-card">
+            <div class="meal-card-header">
+              <span class="meal-time-badge">Snack</span>
+              <span class="meal-title">Post-Study Boost</span>
+            </div>
+            <div class="meal-card-body">
+              <ul class="meal-items">
+                <li class="meal-item"><span class="meal-item-dot"></span>Peanut butter on multi-grain crackers</li>
+                <li class="meal-item"><span class="meal-item-dot"></span>Dark chocolate (70%+) &amp; walnut mix</li>
+                <li class="meal-item"><span class="meal-item-dot"></span>Fresh fruit &mdash; apple or pear</li>
+              </ul>
+              <div class="meal-tip">💡 Omega-3 from walnuts supports mood &amp; exam performance.</div>
+            </div>
+            <div class="nutrition-chips">
+              <span class="nutrition-chip">Omega-3</span>
+              <span class="nutrition-chip">Magnesium</span>
+            </div>
+          </div>
+          <div class="meal-card">
+            <div class="meal-card-header">
+              <span class="meal-time-badge">Dinner</span>
+              <span class="meal-title">Recovery Meal</span>
+            </div>
+            <div class="meal-card-body">
+              <ul class="meal-items">
+                <li class="meal-item"><span class="meal-item-dot"></span>Tofu &amp; vegetable stir-fry with brown rice</li>
+                <li class="meal-item"><span class="meal-item-dot"></span>Chana masala (spiced chickpeas) with naan</li>
+                <li class="meal-item"><span class="meal-item-dot"></span>Paneer tikka with mint dip as protein top-up</li>
+              </ul>
+              <div class="meal-tip">💡 Aim for 1.2&ndash;1.6 g protein/kg body weight for active teens.</div>
+            </div>
+            <div class="nutrition-chips">
+              <span class="nutrition-chip">Protein</span>
+              <span class="nutrition-chip">Zinc</span>
+              <span class="nutrition-chip">B12</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- ---- ADULTS ---- -->
+      <div class="age-group theme-green fade-in" id="adults" aria-label="Adults diet plan" style="margin-top:48px">
+        <div class="age-group-header">
+          <div class="age-group-icon" aria-hidden="true">🧑</div>
+          <div class="age-group-meta">
+            <div class="age-group-label">Ages 19 &ndash; 59 Years</div>
+            <div class="age-group-title">Adults</div>
+            <div class="age-group-sub">Caloric need ~2,000&ndash;2,500 kcal/day &middot; Focus: energy, heart health, weight management</div>
+          </div>
+        </div>
+        <div class="diet-grid">
+          <div class="meal-card">
+            <div class="meal-card-header">
+              <span class="meal-time-badge">Breakfast</span>
+              <span class="meal-title">Productive Morning</span>
+            </div>
+            <div class="meal-card-body">
+              <ul class="meal-items">
+                <li class="meal-item"><span class="meal-item-dot"></span>Overnight oats with chia seeds, almond milk &amp; berries</li>
+                <li class="meal-item"><span class="meal-item-dot"></span>Two multigrain idlis with sambar &amp; coconut chutney</li>
+                <li class="meal-item"><span class="meal-item-dot"></span>Black coffee or green tea (no added sugar)</li>
+              </ul>
+              <div class="meal-tip">💡 High-fibre breakfasts maintain blood sugar and reduce mid-morning crashes.</div>
+            </div>
+            <div class="nutrition-chips">
+              <span class="nutrition-chip">Fibre</span>
+              <span class="nutrition-chip">Protein</span>
+              <span class="nutrition-chip">Antioxidants</span>
+            </div>
+          </div>
+          <div class="meal-card">
+            <div class="meal-card-header">
+              <span class="meal-time-badge">Lunch</span>
+              <span class="meal-title">Balanced Plate</span>
+            </div>
+            <div class="meal-card-body">
+              <ul class="meal-items">
+                <li class="meal-item"><span class="meal-item-dot"></span>Brown rice + dal + mixed sabzi (vegetables) + salad</li>
+                <li class="meal-item"><span class="meal-item-dot"></span>Palak paneer with whole-wheat roti</li>
+                <li class="meal-item"><span class="meal-item-dot"></span>Buttermilk (chaas) or lemon water</li>
+              </ul>
+              <div class="meal-tip">💡 Plate rule: &frac12; vegetables, &frac14; grains, &frac14; protein.</div>
+            </div>
+            <div class="nutrition-chips">
+              <span class="nutrition-chip">Iron</span>
+              <span class="nutrition-chip">Calcium</span>
+              <span class="nutrition-chip">Vitamin K</span>
+            </div>
+          </div>
+          <div class="meal-card">
+            <div class="meal-card-header">
+              <span class="meal-time-badge">Snack</span>
+              <span class="meal-title">Smart Snacking</span>
+            </div>
+            <div class="meal-card-body">
+              <ul class="meal-items">
+                <li class="meal-item"><span class="meal-item-dot"></span>Sprouts chaat with lemon, onion &amp; coriander</li>
+                <li class="meal-item"><span class="meal-item-dot"></span>A mix of almonds, cashews &amp; dried figs</li>
+                <li class="meal-item"><span class="meal-item-dot"></span>Coconut water or fresh lime soda</li>
+              </ul>
+              <div class="meal-tip">💡 Sprouts are a protein powerhouse &amp; excellent prebiotic.</div>
+            </div>
+            <div class="nutrition-chips">
+              <span class="nutrition-chip">Probiotics</span>
+              <span class="nutrition-chip">Healthy Fats</span>
+            </div>
+          </div>
+          <div class="meal-card">
+            <div class="meal-card-header">
+              <span class="meal-time-badge">Dinner</span>
+              <span class="meal-title">Light Evening</span>
+            </div>
+            <div class="meal-card-body">
+              <ul class="meal-items">
+                <li class="meal-item"><span class="meal-item-dot"></span>Vegetable soup + multigrain bread (light)</li>
+                <li class="meal-item"><span class="meal-item-dot"></span>Quinoa salad with roasted veggies &amp; tahini dressing</li>
+                <li class="meal-item"><span class="meal-item-dot"></span>A cup of low-fat milk with turmeric (golden milk)</li>
+              </ul>
+              <div class="meal-tip">💡 Lighter dinners improve sleep quality &amp; metabolism.</div>
+            </div>
+            <div class="nutrition-chips">
+              <span class="nutrition-chip">Antioxidants</span>
+              <span class="nutrition-chip">Magnesium</span>
+              <span class="nutrition-chip">Tryptophan</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- ---- SENIORS ---- -->
+      <div class="age-group theme-orange fade-in" id="seniors" aria-label="Seniors diet plan" style="margin-top:48px">
+        <div class="age-group-header">
+          <div class="age-group-icon" aria-hidden="true">👴</div>
+          <div class="age-group-meta">
+            <div class="age-group-label">Ages 60+ Years</div>
+            <div class="age-group-title">Seniors</div>
+            <div class="age-group-sub">Caloric need ~1,600&ndash;2,000 kcal/day &middot; Focus: bone health, joint mobility, digestion</div>
+          </div>
+        </div>
+        <div class="diet-grid">
+          <div class="meal-card">
+            <div class="meal-card-header">
+              <span class="meal-time-badge">Breakfast</span>
+              <span class="meal-title">Gentle Start</span>
+            </div>
+            <div class="meal-card-body">
+              <ul class="meal-items">
+                <li class="meal-item"><span class="meal-item-dot"></span>Soft porridge (daliya) with jaggery &amp; cardamom</li>
+                <li class="meal-item"><span class="meal-item-dot"></span>Stewed prunes or soaked raisins for regularity</li>
+                <li class="meal-item"><span class="meal-item-dot"></span>Warm milk with a pinch of turmeric</li>
+              </ul>
+              <div class="meal-tip">💡 Warm, easily digestible foods are gentler on ageing digestive systems.</div>
+            </div>
+            <div class="nutrition-chips">
+              <span class="nutrition-chip">Calcium</span>
+              <span class="nutrition-chip">Vitamin D</span>
+              <span class="nutrition-chip">Fibre</span>
+            </div>
+          </div>
+          <div class="meal-card">
+            <div class="meal-card-header">
+              <span class="meal-time-badge">Lunch</span>
+              <span class="meal-title">Nourishing Noon</span>
+            </div>
+            <div class="meal-card-body">
+              <ul class="meal-items">
+                <li class="meal-item"><span class="meal-item-dot"></span>Soft khichdi with mixed vegetables &amp; ghee</li>
+                <li class="meal-item"><span class="meal-item-dot"></span>Moong dal soup with ajwain (carom) tempering</li>
+                <li class="meal-item"><span class="meal-item-dot"></span>Steamed soft gourd (lauki) with roti</li>
+              </ul>
+              <div class="meal-tip">💡 Ghee supports joint lubrication &amp; fat-soluble vitamin absorption.</div>
+            </div>
+            <div class="nutrition-chips">
+              <span class="nutrition-chip">Protein</span>
+              <span class="nutrition-chip">Good Fats</span>
+              <span class="nutrition-chip">B12</span>
+            </div>
+          </div>
+          <div class="meal-card">
+            <div class="meal-card-header">
+              <span class="meal-time-badge">Snack</span>
+              <span class="meal-title">Afternoon Refresh</span>
+            </div>
+            <div class="meal-card-body">
+              <ul class="meal-items">
+                <li class="meal-item"><span class="meal-item-dot"></span>Soft fruit &mdash; ripe papaya or banana</li>
+                <li class="meal-item"><span class="meal-item-dot"></span>Roasted flaxseeds or a small handful of walnuts</li>
+                <li class="meal-item"><span class="meal-item-dot"></span>Herbal tea &mdash; ginger, tulsi, or chamomile</li>
+              </ul>
+              <div class="meal-tip">💡 Omega-3 from flaxseeds supports heart &amp; brain health.</div>
+            </div>
+            <div class="nutrition-chips">
+              <span class="nutrition-chip">Omega-3</span>
+              <span class="nutrition-chip">Potassium</span>
+            </div>
+          </div>
+          <div class="meal-card">
+            <div class="meal-card-header">
+              <span class="meal-time-badge">Dinner</span>
+              <span class="meal-title">Easy Evening</span>
+            </div>
+            <div class="meal-card-body">
+              <ul class="meal-items">
+                <li class="meal-item"><span class="meal-item-dot"></span>Vegetable &amp; tofu clear soup</li>
+                <li class="meal-item"><span class="meal-item-dot"></span>Soft idlis with sambar (no excess chilli)</li>
+                <li class="meal-item"><span class="meal-item-dot"></span>Warm golden milk with ashwagandha powder</li>
+              </ul>
+              <div class="meal-tip">💡 Ashwagandha helps manage stress hormones &amp; improves sleep in seniors.</div>
+            </div>
+            <div class="nutrition-chips">
+              <span class="nutrition-chip">Antioxidants</span>
+              <span class="nutrition-chip">Calcium</span>
+              <span class="nutrition-chip">Adaptogens</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /section -->
+  </section>
+
+  <!-- ===== NUTRITION TABLE ===== -->
+  <section id="nutrition-table" aria-label="Daily nutritional requirements by age group" style="background:#fff">
+    <div class="section">
+      <div class="section-header fade-in">
+        <div class="section-label">📊 Reference Chart</div>
+        <h2 class="section-title">Daily Nutritional Requirements</h2>
+        <p class="section-desc">Approximate recommended daily intakes for vegetarians across all age groups.</p>
+      </div>
+      <div class="table-wrapper fade-in">
+        <table>
+          <thead>
+            <tr>
+              <th>Age Group</th>
+              <th>Calories (kcal)</th>
+              <th>Protein (g)</th>
+              <th>Calcium (mg)</th>
+              <th>Iron (mg)</th>
+              <th>Vitamin B12 (mcg)</th>
+              <th>Key Focus</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="badge-pill" style="background:#fef3c7;color:#d97706">🧒 Toddlers (1&ndash;3)</span></td>
+              <td>1,000&ndash;1,400</td>
+              <td>13&ndash;16</td>
+              <td>700&ndash;1,000</td>
+              <td>7&ndash;10</td>
+              <td>0.9</td>
+              <td>Brain &amp; bone growth</td>
+            </tr>
+            <tr>
+              <td><span class="badge-pill" style="background:#e0f2fe;color:#0284c7">👦 Children (4&ndash;12)</span></td>
+              <td>1,400&ndash;2,200</td>
+              <td>19&ndash;34</td>
+              <td>1,000&ndash;1,300</td>
+              <td>10&ndash;15</td>
+              <td>1.2&ndash;1.8</td>
+              <td>Immunity &amp; cognition</td>
+            </tr>
+            <tr>
+              <td><span class="badge-pill" style="background:#ede9fe;color:#7c3aed">🧑 Teens (13&ndash;18)</span></td>
+              <td>2,200&ndash;3,000</td>
+              <td>46&ndash;59</td>
+              <td>1,300</td>
+              <td>15&ndash;18</td>
+              <td>2.4</td>
+              <td>Bone density &amp; hormones</td>
+            </tr>
+            <tr>
+              <td><span class="badge-pill" style="background:#dcfce7;color:#15803d">🧑 Adults (19&ndash;59)</span></td>
+              <td>2,000&ndash;2,500</td>
+              <td>46&ndash;56</td>
+              <td>1,000</td>
+              <td>8&ndash;18</td>
+              <td>2.4</td>
+              <td>Heart health &amp; energy</td>
+            </tr>
+            <tr>
+              <td><span class="badge-pill" style="background:#ffedd5;color:#c2410c">👴 Seniors (60+)</span></td>
+              <td>1,600&ndash;2,000</td>
+              <td>56&ndash;68</td>
+              <td>1,200</td>
+              <td>8&ndash;10</td>
+              <td>2.8</td>
+              <td>Joint &amp; bone health</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOODS TO AVOID ===== -->
+  <section id="avoid" aria-label="Foods to avoid on a vegetarian diet" style="background:var(--slate-50)">
+    <div class="section">
+      <div class="section-header fade-in">
+        <div class="section-label">🚫 Caution</div>
+        <h2 class="section-title">Foods &amp; Habits to Avoid</h2>
+        <p class="section-desc">Common pitfalls in vegetarian diets that can undermine your health goals.</p>
+      </div>
+      <div class="avoid-grid" role="list">
+        <div class="avoid-card fade-in" role="listitem">
+          <div class="avoid-icon" aria-hidden="true">🍬</div>
+          <div>
+            <div class="avoid-title">Excess Refined Sugar</div>
+            <div class="avoid-desc">White sugar, sweets, and sodas cause inflammation, insulin spikes, and displace nutrient-dense foods.</div>
+          </div>
+        </div>
+        <div class="avoid-card fade-in" role="listitem">
+          <div class="avoid-icon" aria-hidden="true">🍟</div>
+          <div>
+            <div class="avoid-title">Ultra-Processed Snacks</div>
+            <div class="avoid-desc">Chips, packaged biscuits, and instant noodles are high in trans fats, sodium, and empty calories.</div>
+          </div>
+        </div>
+        <div class="avoid-card fade-in" role="listitem">
+          <div class="avoid-icon" aria-hidden="true">☕</div>
+          <div>
+            <div class="avoid-title">Excess Caffeine &amp; Tea</div>
+            <div class="avoid-desc">More than 2 cups/day can inhibit iron and calcium absorption &mdash; space meals &amp; hot drinks apart.</div>
+          </div>
+        </div>
+        <div class="avoid-card fade-in" role="listitem">
+          <div class="avoid-icon" aria-hidden="true">🧂</div>
+          <div>
+            <div class="avoid-title">High Sodium Foods</div>
+            <div class="avoid-desc">Pickles, papadums, and salty snacks raise blood pressure and increase calcium excretion.</div>
+          </div>
+        </div>
+        <div class="avoid-card fade-in" role="listitem">
+          <div class="avoid-icon" aria-hidden="true">🥤</div>
+          <div>
+            <div class="avoid-title">Sugary Beverages</div>
+            <div class="avoid-desc">Fruit juices with added sugar, energy drinks, and aerated drinks contribute to obesity and dental decay.</div>
+          </div>
+        </div>
+        <div class="avoid-card fade-in" role="listitem">
+          <div class="avoid-icon" aria-hidden="true">🍞</div>
+          <div>
+            <div class="avoid-title">Excess Refined Grains</div>
+            <div class="avoid-desc">White bread and maida (all-purpose flour) lack fibre and spike blood sugar. Opt for whole grains.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TIPS ===== -->
+  <section id="tips" aria-label="Vegetarian nutrition tips" style="background:#fff">
+    <div class="section">
+      <div class="section-header fade-in">
+        <div class="section-label">✨ Pro Tips</div>
+        <h2 class="section-title">Optimize Your Vegetarian Diet</h2>
+        <p class="section-desc">Simple, science-backed strategies to get the most from plant-based eating.</p>
+      </div>
+      <div class="tips-grid">
+        <div class="tip-card fade-in">
+          <div class="tip-card-icon">🌞</div>
+          <div class="tip-card-title">Vitamin D Sunlight &amp; Supplements</div>
+          <div class="tip-card-desc">Spend 15&ndash;20 min in morning sun and consider a Vitamin D3 supplement &mdash; most vegetarians are deficient.</div>
+        </div>
+        <div class="tip-card fade-in">
+          <div class="tip-card-icon">💊</div>
+          <div class="tip-card-title">Supplement B12 Religiously</div>
+          <div class="tip-card-desc">Vitamin B12 is found almost exclusively in animal products. All vegetarians should supplement 500&ndash;1000 mcg weekly.</div>
+        </div>
+        <div class="tip-card fade-in">
+          <div class="tip-card-icon">🫘</div>
+          <div class="tip-card-title">Soak &amp; Sprout Your Legumes</div>
+          <div class="tip-card-desc">Soaking reduces phytic acid, increasing the absorption of iron, zinc, and calcium from beans and lentils.</div>
+        </div>
+        <div class="tip-card fade-in">
+          <div class="tip-card-icon">🍋</div>
+          <div class="tip-card-title">Pair Iron With Vitamin C</div>
+          <div class="tip-card-desc">Non-haem iron from plants is less bioavailable. Add lemon juice or tomatoes to iron-rich meals to boost uptake.</div>
+        </div>
+        <div class="tip-card fade-in">
+          <div class="tip-card-icon">💧</div>
+          <div class="tip-card-title">Hydrate Smartly</div>
+          <div class="tip-card-desc">Aim for 8&ndash;10 glasses of water daily. High-fibre vegetarian diets need more fluids to aid digestion and prevent constipation.</div>
+        </div>
+        <div class="tip-card fade-in">
+          <div class="tip-card-icon">🥜</div>
+          <div class="tip-card-title">Diversify Your Protein Sources</div>
+          <div class="tip-card-desc">Rotate between dal, paneer, tofu, beans, quinoa, and nuts to ensure a complete amino acid profile throughout the week.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EMERGENCY CTA ===== -->
+  <section class="emergency-cta" aria-label="Emergency helpline section">
+    <div class="emergency-cta-inner">
+      <span class="emergency-cta-icon" aria-hidden="true">🆘</span>
+      <h2>Medical Emergency?</h2>
+      <p>If you or someone around you is experiencing a severe allergic reaction, choking, chest pain, or any life-threatening situation &mdash; do not wait. Call the emergency helpline immediately.</p>
+      <a href="tel:104" class="emergency-call-btn" aria-label="Call emergency number 104">
+        📞 Call 104
+      </a>
+      <p style="margin-top:20px;font-size:.8rem;opacity:.7">National Health Helpline &middot; Available 24 hours, 7 days a week &middot; Free of charge</p>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer aria-label="Footer">
+    <div class="footer-logo">🥗 VegDiet Guide</div>
+    <p class="footer-tagline">Science-backed vegetarian nutrition for every stage of life.</p>
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="#diet-groups">Diet Plans</a>
+      <a href="#nutrition-table">Nutrition Data</a>
+      <a href="#avoid">Foods to Avoid</a>
+      <a href="#tips">Tips</a>
+    </nav>
+    <p class="footer-copy">
+      &#9888;&#65039; This page is for informational purposes only and does not constitute medical advice.
+      Always consult a registered dietitian or doctor before making dietary changes.<br>
+      &copy; 2025 HealthLens &middot; Emergency: <a href="tel:104" style="color:var(--green-500)">104</a>
+    </p>
+  </footer>
+
+  <!-- ============================================
+       JAVASCRIPT — tabs + scroll animation
+  ============================================ -->
+  <script>
+    // ---- Tab navigation ----
+    function scrollToGroup(id, btn) {
+      document.querySelectorAll('.age-tab').forEach(function(t) {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+      var target = document.getElementById(id);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // ---- Scroll-triggered fade-in ----
+    var fadeEls = document.querySelectorAll('.fade-in');
+
+    if ('IntersectionObserver' in window) {
+      var fadeObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            fadeObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08 });
+
+      fadeEls.forEach(function(el) { fadeObserver.observe(el); });
+    } else {
+      // Fallback for older browsers
+      fadeEls.forEach(function(el) { el.classList.add('visible'); });
+    }
+
+    // ---- Highlight active tab on scroll ----
+    var groups = ['toddlers', 'children', 'teens', 'adults', 'seniors'];
+    var tabs   = document.querySelectorAll('.age-tab');
+
+    if ('IntersectionObserver' in window) {
+      var scrollObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            var idx = groups.indexOf(entry.target.id);
+            if (idx !== -1) {
+              tabs.forEach(function(t, i) {
+                t.classList.toggle('active', i === idx);
+                t.setAttribute('aria-selected', i === idx ? 'true' : 'false');
+              });
+            }
+          }
+        });
+      }, { rootMargin: '-120px 0px -60% 0px', threshold: 0 });
+
+      groups.forEach(function(id) {
+        var el = document.getElementById(id);
+        if (el) scrollObserver.observe(el);
+      });
+    }
+  </script>
+</body>
+</html>

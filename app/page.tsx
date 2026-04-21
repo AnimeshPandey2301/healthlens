@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CheckCircle, Heart, ShieldAlert, Stethoscope } from "lucide-react";
+import { CheckCircle, Heart, ShieldAlert, Stethoscope, Salad } from "lucide-react";
 
 export default function HomePage() {
   return (
@@ -45,7 +45,7 @@ export default function HomePage() {
               Everything you need in one place
             </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
               {/* Card 1 */}
               <div className="bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-md transition-shadow">
                 <div className="mb-4 inline-flex items-center justify-center w-12 h-12 bg-teal-50 rounded-xl">
@@ -87,6 +87,23 @@ export default function HomePage() {
                   emergencies when every second counts.
                 </p>
               </div>
+
+              {/* Card 4 — Diet Plan */}
+              <Link
+                href="/diet-plan"
+                className="bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-md transition-shadow block no-underline"
+              >
+                <div className="mb-4 inline-flex items-center justify-center w-12 h-12 bg-green-50 rounded-xl">
+                  <Salad size={28} className="text-green-600" strokeWidth={1.8} />
+                </div>
+                <h3 className="text-base font-semibold text-[#1E3A5F] mb-2">
+                  Vegetarian Diet Plan
+                </h3>
+                <p className="text-sm text-gray-500 leading-relaxed">
+                  Science-backed meal plans by age group — toddlers to seniors — with
+                  nutrition tables, tips, and foods to avoid.
+                </p>
+              </Link>
             </div>
           </div>
         </section>
@@ -156,6 +173,9 @@ export default function HomePage() {
             </Link>
             <Link href="/emergency" className="text-sm text-teal-600 hover:text-teal-700 transition-colors">
               Emergency Guide
+            </Link>
+            <Link href="/diet-plan" className="text-sm text-teal-600 hover:text-teal-700 transition-colors">
+              Diet Plan
             </Link>
           </div>
         </footer>
