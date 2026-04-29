@@ -46,16 +46,26 @@ export default async function DashboardPage() {
   if (!user) redirect("/auth/login");
 
   // ── 2. Data fetching ───────────────────────────────────────────────────────
-  const [sessions, totalCount, profile] = await Promise.all([
-    prisma.symptomSession.findMany({
-      where:   { userId: user.id },
-      orderBy: { createdAt: "desc" },
-      take:    10,
-      include: { results: true },
-    }),
-    prisma.symptomSession.count({ where: { userId: user.id } }),
-    prisma.medicalProfile.findUnique({ where: { userId: user.id } }),
-  ]);
+  let sessions: Awaited<ReturnType<typeof prisma.symptomSession.findMany>> = [];
+  let totalCount = 0;
+  let profile: Awaited<ReturnType<typeof prisma.medicalProfile.findUnique>> = null;
+  let dbReady = true;
+
+  try {
+    [sessions, totalCount, profile] = await Promise.all([
+      prisma.symptomSession.findMany({
+        where:   { userId: user.id },
+        orderBy: { createdAt: "desc" },
+        take:    10,
+        include: { results: true },
+      }),
+      prisma.symptomSession.count({ where: { userId: user.id } }),
+      prisma.medicalProfile.findUnique({ where: { userId: user.id } }),
+    ]);
+  } catch {
+    // Tables don't exist yet — show setup banner, render empty dashboard
+    dbReady = false;
+  }
 
   // ── 3. Sign-out server action ──────────────────────────────────────────────
   async function signOut() {
@@ -78,6 +88,24 @@ export default async function DashboardPage() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-teal-50 via-white to-slate-50">
       <div className="max-w-4xl mx-auto px-4 py-8">
+
+        {/* ── DB SETUP BANNER ────────────────────────────────────────────── */}
+        {!dbReady && (
+          <div className="mb-6 bg-amber-50 border border-amber-200 rounded-xl px-5 py-4 flex flex-col gap-2">
+            <p className="text-sm font-semibold text-amber-800">⚠️ One-time database setup required</p>
+            <p className="text-xs text-amber-700">
+              The database tables haven't been created yet. Open the Supabase SQL Editor and run the setup script.
+            </p>
+            <a
+              href="https://supabase.com/dashboard/project/aqynnlcvkggqkkqgrbty/sql/new"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block text-xs font-semibold text-teal-700 underline hover:text-teal-900"
+            >
+              👉 Open Supabase SQL Editor → paste contents of prisma/create_tables.sql → click Run
+            </a>
+          </div>
+        )}
 
         {/* ── TOP BAR ─────────────────────────────────────────────────────── */}
         <div className="flex items-start justify-between gap-4 flex-wrap">
@@ -168,7 +196,7 @@ export default async function DashboardPage() {
               {sessions.map((session) => {
                 // Derive overall severity from session or first result
                 const sev =
-                  session.severityLevel ?? session.results[0]?.severityLevel ?? "yellow";
+                  session.severityLevel ?? (session as any).results?.[0]?.severityLevel ?? "yellow";
                 const badge = SEVERITY_BADGE[sev] ?? SEVERITY_BADGE.yellow;
 
                 const visibleSymptoms = session.symptomsEntered.slice(0, 4);

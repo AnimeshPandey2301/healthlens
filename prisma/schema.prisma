@@ -79,3 +79,30 @@ model Symptom {
 
   @@map("symptoms")
 }
+
+model OtpRecord {
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  phoneNumber String
+  otpHash     String
+  attempts    Int      @default(0)
+  verified    Boolean  @default(false)
+  expiresAt   DateTime
+  createdAt   DateTime @default(now())
+
+  @@index([phoneNumber])
+  @@map("otp_records")
+}
+
+model MedicineOrder {
+  id              String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  phoneNumber     String
+  patientName     String
+  medicines       Json
+  deliveryAddress String
+  notes           String?
+  status          String   @default("confirmed")
+  otpVerified     Boolean  @default(false)
+  createdAt       DateTime @default(now())
+
+  @@map("medicine_orders")
+}

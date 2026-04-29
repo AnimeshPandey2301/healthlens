@@ -46,6 +46,18 @@ export default async function Navbar() {
           >
             Find a Doctor
           </Link>
+          <Link
+            href="/medicines"
+            className="text-sm text-gray-600 hover:text-teal-600 font-medium transition-colors"
+          >
+            Medicines
+          </Link>
+          <Link
+            href="/medicines/order"
+            className="text-sm text-gray-600 hover:text-teal-600 font-medium transition-colors"
+          >
+            Order Medicines
+          </Link>
         </nav>
 
         {/* Auth section */}

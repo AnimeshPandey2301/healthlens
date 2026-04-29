@@ -2,9 +2,14 @@ import { PrismaClient } from '@prisma/client';
 import { PrismaPg } from '@prisma/adapter-pg';
 
 const prismaClientSingleton = () => {
-  const adapter = new PrismaPg({
-    connectionString: process.env.DATABASE_URL!,
-  });
+  // Strip pgbouncer params and add short timeouts so blocked ports fail fast
+  const base = (process.env.DATABASE_URL ?? '')
+    .replace('?pgbouncer=true&connection_limit=1', '');
+  const connectionString =
+    base + (base.includes('?') ? '&' : '?') +
+    'connect_timeout=5&pool_timeout=5';
+
+  const adapter = new PrismaPg({ connectionString });
   return new PrismaClient({ adapter });
 };
 
