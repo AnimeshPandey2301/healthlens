@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>HealthLens – Project Guide</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Segoe UI',Arial,sans-serif;font-size:11px;color:#1a1a2e;background:#fff;padding:20px}
+  h1{font-size:22px;color:#0d7377;text-align:center;margin-bottom:2px}
+  .subtitle{text-align:center;color:#555;font-size:11px;margin-bottom:12px}
+  hr{border:1px solid #0d7377;margin:8px 0}
+  h2{font-size:13px;color:#0d7377;margin:10px 0 4px;border-left:3px solid #0d7377;padding-left:6px}
+  h3{font-size:11px;color:#14a085;margin:6px 0 2px}
+  p,li{font-size:10.5px;line-height:1.5;color:#333}
+  ul,ol{padding-left:16px;margin-bottom:4px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+  .box{background:#f0fafa;border:1px solid #b2dfdb;border-radius:6px;padding:7px}
+  .badge{display:inline-block;background:#0d7377;color:#fff;border-radius:4px;padding:1px 6px;font-size:9px;margin-right:3px}
+  .qa{background:#fffde7;border-left:3px solid #f9a825;padding:5px 7px;margin-bottom:4px;border-radius:0 4px 4px 0}
+  .qa strong{color:#e65100;font-size:10.5px}
+  .qa p{font-size:10px;margin-top:1px}
+  .flow{display:flex;align-items:center;flex-wrap:wrap;gap:4px;margin:5px 0}
+  .flow-step{background:#0d7377;color:#fff;border-radius:12px;padding:3px 9px;font-size:9.5px}
+  .flow-arrow{color:#0d7377;font-weight:bold;font-size:12px}
+  table{width:100%;border-collapse:collapse;margin:4px 0;font-size:10px}
+  th{background:#0d7377;color:#fff;padding:4px 6px;text-align:left}
+  td{padding:3px 6px;border-bottom:1px solid #e0e0e0}
+  tr:nth-child(even) td{background:#f5f5f5}
+  .page-break{page-break-before:always}
+  @media print{
+    body{padding:10px}
+    .page-break{page-break-before:always}
+  }
+</style>
+</head>
+<body>
+
+<h1>🔬 HealthLens — Complete Project Guide</h1>
+<p class="subtitle">Mentor-Ready Reference | Built with Next.js 16 + Supabase + PostgreSQL | India-focused Health Awareness Platform</p>
+<hr/>
+
+<!-- ===== PAGE 1 ===== -->
+<div class="grid">
+<!-- LEFT COLUMN -->
+<div>
+  <h2>1. What is HealthLens?</h2>
+  <p>HealthLens is a <strong>free, educational health-awareness web app</strong> built for India. It replaces chaotic Google searches with curated, medically-grounded information. It is <em>not</em> a diagnostic tool — it helps users understand symptoms, find nearby doctors, order medicines, and access emergency first-aid guides.</p>
+  <p style="margin-top:4px"><strong>Target Users:</strong> General public (especially rural/semi-urban India), patients, students, caregivers.</p>
+  <p style="margin-top:4px"><strong>Problem Solved:</strong> Most Indians search random sites when ill and get misinformation. HealthLens provides structured, WHO/AIIMS-verified health awareness that even works on 2G.</p>
+
+  <h2>2. Features</h2>
+  <ul>
+    <li><strong>Symptom Checker</strong> — Search &amp; select up to 8 symptoms; filter by age, gender, duration; get ranked condition matches with severity (Low / Moderate / High)</li>
+    <li><strong>Doctor Finder (Map)</strong> — Uses your GPS + OpenStreetMap/Overpass API to show nearby hospitals, clinics, pharmacies on an embedded Leaflet map with directions</li>
+    <li><strong>Medicine Ordering</strong> — Browse 30 medicines across 5 categories; add to cart; verify identity via OTP (Twilio); choose payment method; order saved to DB</li>
+    <li><strong>Emergency First Aid</strong> — Step-by-step CPR/first aid guides; quick-dial 112 &amp; 102</li>
+    <li><strong>Diet Plan</strong> — Science-backed vegetarian meal plans by age group (toddler → senior)</li>
+    <li><strong>User Dashboard</strong> — View symptom session history, severity badges, medical profile</li>
+    <li><strong>Auth (Supabase)</strong> — Register/Login with email+password; JWT sessions; protected routes</li>
+    <li><strong>Medical Profile</strong> — Store blood group, allergies, chronic conditions</li>
+    <li><strong>PWA Support</strong> — Works offline (next-pwa); installable on mobile</li>
+  </ul>
+
+  <h2>3. Tech Stack</h2>
+  <table>
+    <tr><th>Layer</th><th>Technology</th><th>Why Used</th></tr>
+    <tr><td>Frontend</td><td>Next.js 16 + TypeScript + TailwindCSS</td><td>Full-stack React framework; SSR for SEO; file-based routing; App Router</td></tr>
+    <tr><td>UI Components</td><td>shadcn/ui + Radix UI + Lucide Icons</td><td>Accessible, unstyled components; fast development</td></tr>
+    <tr><td>State Mgmt</td><td>Zustand</td><td>Lightweight global state for cart &amp; symptom selection</td></tr>
+    <tr><td>Backend</td><td>Next.js API Routes (serverless)</td><td>No separate server needed; co-located with frontend</td></tr>
+    <tr><td>Database</td><td>PostgreSQL (via Supabase)</td><td>Relational DB; Supabase provides hosted Postgres + Auth + Storage</td></tr>
+    <tr><td>ORM</td><td>Prisma 7</td><td>Type-safe DB queries; schema-first; migration support</td></tr>
+    <tr><td>Auth</td><td>Supabase Auth (JWT)</td><td>Built-in email auth; row-level security; handles JWT automatically</td></tr>
+    <tr><td>OTP / SMS</td><td>Twilio Verify</td><td>Send 6-digit OTP to phone; verify before order placement</td></tr>
+    <tr><td>Maps</td><td>Leaflet + OpenStreetMap + Overpass API</td><td>100% free; no API key needed; real healthcare data from OSM</td></tr>
+    <tr><td>Fuzzy Search</td><td>Fuse.js</td><td>Fast client-side fuzzy matching for symptom search</td></tr>
+    <tr><td>Payment</td><td>Razorpay (integrated)</td><td>India's leading payment gateway; supports UPI, Card, Net Banking, COD</td></tr>
+    <tr><td>Forms</td><td>React Hook Form + Zod</td><td>Performant forms; schema-based validation</td></tr>
+    <tr><td>PWA</td><td>next-pwa</td><td>Offline support; installable app</td></tr>
+  </table>
+
+  <h2>4. Architecture (Simple)</h2>
+  <div class="box">
+    <p><strong>Client-Server Model:</strong> The browser (client) displays the UI. When you click a button, it calls a Next.js API Route (server). The server talks to PostgreSQL via Prisma and returns data. All API routes run as serverless functions on Vercel/server.</p>
+    <div class="flow">
+      <span class="flow-step">Browser (React)</span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-step">Next.js API Route</span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-step">Prisma ORM</span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-step">PostgreSQL (Supabase)</span>
+    </div>
+    <p style="margin-top:4px">Auth layer: Every protected API route first calls <code>supabase.auth.getUser()</code> to verify the JWT token from the browser cookie before processing requests.</p>
+  </div>
+</div>
+
+<!-- RIGHT COLUMN -->
+<div>
+  <h2>5. How Data Flows — Symptom Checker</h2>
+  <div class="box">
+    <ol>
+      <li>User types "fever" → debounced call to <code>POST /api/symptoms/search</code></li>
+      <li>Server queries Prisma → Symptom table → returns matching symptoms</li>
+      <li>User selects symptoms → Zustand store holds them in memory</li>
+      <li>User clicks "Analyse" → <code>POST /api/symptoms/analyse</code> called with symptoms + filters</li>
+      <li>Server matches symptoms against Conditions table → ranks by match score</li>
+      <li>Results stored in <code>pendingSessionMap</code> (in-memory) + DB via Prisma</li>
+      <li>User redirected to <code>/results</code> page → reads results from Zustand store</li>
+    </ol>
+  </div>
+
+  <h2>6. How Login Works</h2>
+  <div class="box">
+    <ol>
+      <li>User submits email + password on <code>/auth/login</code></li>
+      <li>Supabase Auth SDK called: <code>supabase.auth.signInWithPassword()</code></li>
+      <li>Supabase returns a <strong>JWT token</strong> + sets it as an HTTP-only cookie</li>
+      <li>Every page load: Next.js middleware checks cookie → if missing, redirects to login</li>
+      <li>Server components call <code>supabase.auth.getUser()</code> to get current user</li>
+      <li>On logout: <code>supabase.auth.signOut()</code> clears cookie → redirect to home</li>
+    </ol>
+  </div>
+
+  <h2>7. How Doctor Map Works</h2>
+  <div class="box">
+    <ol>
+      <li>Page loads → browser requests GPS via <code>navigator.geolocation</code></li>
+      <li>Leaflet map initialised on a <code>&lt;div&gt;</code> container; OpenStreetMap tiles loaded</li>
+      <li>Overpass API queried with GPS coordinates: fetches hospitals, clinics, pharmacies within 3km</li>
+      <li>Results rendered as colour-coded markers on map</li>
+      <li>Search bar uses Nominatim geocoding + Overpass for text queries</li>
+      <li>Specialty chips (Cardiologist, Dentist…) trigger tag-based Overpass queries near user</li>
+    </ol>
+  </div>
+
+  <h2>8. How OTP Ordering Works</h2>
+  <div class="box">
+    <ol>
+      <li>User adds medicines to cart (Zustand + localStorage persist)</li>
+      <li>Enters phone number → <code>POST /api/otp/send</code> → Twilio sends SMS</li>
+      <li>OTP hash stored in <code>otp_records</code> table (bcrypt hashed)</li>
+      <li>User enters 6-digit OTP → <code>POST /api/otp/verify</code> → hash compared</li>
+      <li>On success → user selects payment → <code>POST /api/orders/create</code></li>
+      <li>Order saved to <code>medicine_orders</code> table → success screen shown</li>
+    </ol>
+  </div>
+
+  <h2>9. Database Tables (Prisma Schema)</h2>
+  <table>
+    <tr><th>Table</th><th>What it stores</th></tr>
+    <tr><td>medical_profiles</td><td>User's name, age, blood group, allergies, conditions</td></tr>
+    <tr><td>symptom_sessions</td><td>Each symptom check: symptoms entered, severity, top condition</td></tr>
+    <tr><td>session_results</td><td>Ranked conditions per session with match score</td></tr>
+    <tr><td>conditions</td><td>Master list of medical conditions with symptoms, precautions</td></tr>
+    <tr><td>symptoms</td><td>Master symptom list with body area, severity weight</td></tr>
+    <tr><td>otp_records</td><td>Phone number, hashed OTP, expiry, verified status</td></tr>
+    <tr><td>medicine_orders</td><td>Placed orders: medicines JSON, address, payment, status</td></tr>
+  </table>
+</div>
+</div>
+
+<!-- ===== PAGE 2 ===== -->
+<div class="page-break">
+<hr/>
+<h2>10. Important Concepts Explained Simply</h2>
+<div class="grid3">
+  <div class="box">
+    <h3>JWT (JSON Web Token)</h3>
+    <p>A digital "ID card" given after login. It's a small encrypted string stored in a cookie. Every request the browser makes sends this token; the server checks it to confirm "yes, this person is logged in." Supabase handles all JWT creation &amp; validation automatically.</p>
+  </div>
+  <div class="box">
+    <h3>API (Application Programming Interface)</h3>
+    <p>A way for two parts of software to talk. Example: when you click "Analyse Symptoms," the browser sends a message (API call) to the server saying "here are my symptoms." The server processes it and sends back results. In HealthLens, all API routes live under <code>/app/api/</code>.</p>
+  </div>
+  <div class="box">
+    <h3>Async Operations</h3>
+    <p>Things that take time (fetching from DB, calling Twilio, loading map). Instead of freezing the screen, JavaScript uses <code>async/await</code> — it starts the task, shows a loading spinner, and updates the UI when done. Example: the spinning loader while the map fetches doctors.</p>
+  </div>
+  <div class="box">
+    <h3>Prisma ORM</h3>
+    <p>Instead of writing raw SQL like <code>SELECT * FROM symptoms</code>, Prisma lets you write TypeScript: <code>prisma.symptom.findMany()</code>. It's safer (no SQL injection), type-checked, and generates the query automatically. Schema defined in <code>prisma/schema.prisma</code>.</p>
+  </div>
+  <div class="box">
+    <h3>Zustand (State Management)</h3>
+    <p>Imagine a shared notebook that any component can read or write. When you add a medicine to cart in one component, the cart icon in the navbar instantly updates. Zustand holds this shared data in memory. Cart data is also saved to localStorage so it survives page refresh.</p>
+  </div>
+  <div class="box">
+    <h3>Row Level Security (RLS)</h3>
+    <p>A Supabase/PostgreSQL feature. Even if someone has the DB URL, they can ONLY see their own data. Rules like "a user can only read their own symptom_sessions" are enforced at the database level — not just in code. This is in <code>supabase/rls-policies.sql</code>.</p>
+  </div>
+</div>
+
+<h2>11. Viva Questions &amp; Answers</h2>
+<div class="grid">
+<div>
+  <div class="qa"><strong>Q1: What is HealthLens and what problem does it solve?</strong><p>HealthLens is a free health-awareness platform for India that gives structured symptom information based on WHO/AIIMS data, replacing unreliable Google searches. It is NOT a diagnostic tool.</p></div>
+  <div class="qa"><strong>Q2: Why did you choose Next.js?</strong><p>Next.js supports both Server-Side Rendering (for SEO) and API Routes (backend) in one framework — no need for a separate Express server. The App Router enables server components that fetch data directly.</p></div>
+  <div class="qa"><strong>Q3: What is Supabase and why use it over Firebase?</strong><p>Supabase is an open-source Firebase alternative built on PostgreSQL (relational). We chose it because it gives us structured data, SQL queries, Row Level Security, and built-in Auth — all in one hosted service.</p></div>
+  <div class="qa"><strong>Q4: How does authentication work?</strong><p>Supabase Auth issues a JWT token on login stored in an HTTP-only cookie. Next.js middleware checks this cookie on every route. Server components verify the user with <code>supabase.auth.getUser()</code>.</p></div>
+  <div class="qa"><strong>Q5: What is Prisma and why use it?</strong><p>Prisma is a TypeScript ORM. It converts TypeScript method calls into SQL queries. Benefits: type safety, auto-completion, no SQL injection, easy migrations. Schema is defined in <code>prisma/schema.prisma</code>.</p></div>
+  <div class="qa"><strong>Q6: How does the doctor map work without Google Maps?</strong><p>We use Leaflet (open-source map library) with free OpenStreetMap tiles. Doctor data is fetched from Overpass API (crowdsourced healthcare data from OSM). Zero cost, no API key required.</p></div>
+  <div class="qa"><strong>Q7: What is OTP and how is it secured?</strong><p>OTP = One-Time Password. Twilio sends a 6-digit SMS. The OTP is hashed using bcrypt before storing in DB. On verify, the entered code is bcrypt-compared with the hash. Expires in 10 minutes.</p></div>
+  <div class="qa"><strong>Q8: What is the role of Zustand in this project?</strong><p>Zustand manages global client state: the medicine cart and symptom selection. It persists the cart to localStorage so items survive page refresh. It replaces prop-drilling across multiple components.</p></div>
+</div>
+<div>
+  <div class="qa"><strong>Q9: How do you validate user inputs?</strong><p>Zod schemas validate all API request bodies server-side. For example, the profile API uses a Zod schema to ensure blood group is one of 8 valid values. React Hook Form handles client-side form validation.</p></div>
+  <div class="qa"><strong>Q10: What is Row Level Security (RLS)?</strong><p>RLS is a PostgreSQL feature where database-level rules restrict data access. Even if an attacker bypasses the API, the DB itself only returns rows belonging to the authenticated user's ID.</p></div>
+  <div class="qa"><strong>Q11: Why use Overpass API instead of Google Places API?</strong><p>Google Places API costs money per request. Overpass API is completely free, provides real healthcare data from OpenStreetMap's global contributor database, and has no usage limits for educational projects.</p></div>
+  <div class="qa"><strong>Q12: What is PWA and did you implement it?</strong><p>PWA = Progressive Web App. With next-pwa, HealthLens can be "installed" on a phone's home screen and works offline. Emergency first-aid guides load even without internet — critical in India's rural areas.</p></div>
+  <div class="qa"><strong>Q13: How does symptom matching work?</strong><p>When symptoms are submitted, the server queries the Conditions table. Each condition has a list of associated symptoms. The overlap between user symptoms and condition symptoms is calculated as a match score. Results are ranked highest-score first with severity level.</p></div>
+  <div class="qa"><strong>Q14: How is patient data kept private?</strong><p>Compliant with India's DPDP Act 2023. RLS ensures users only see their own data. No data sold to third parties. JWT tokens are HTTP-only (not accessible by JavaScript). Sensitive fields like OTPs are bcrypt-hashed.</p></div>
+  <div class="qa"><strong>Q15: What happens if the database is not set up?</strong><p>The Dashboard gracefully handles DB errors with a try-catch block. If tables don't exist, it shows a friendly "DB setup required" banner with a link to run the SQL setup script — the app doesn't crash.</p></div>
+</div>
+</div>
+
+<h2>12. One-Minute Summary (Speak This in Presentations)</h2>
+<div class="box" style="background:#e8f5e9;border-color:#66bb6a">
+  <p><strong>"HealthLens is a full-stack health awareness web application built for India using Next.js, Supabase, and PostgreSQL. A user can enter their symptoms, and the app matches them against a verified medical dataset to show possible conditions with severity levels. It also has an embedded map powered by OpenStreetMap that finds nearby doctors and hospitals using your GPS location. Users can order medicines from a catalogue of 30 items, verified via SMS OTP through Twilio. The app uses Supabase for authentication with JWT tokens, Prisma ORM for type-safe database access, and Zustand for cart and symptom state management. It works as a Progressive Web App, so it can be installed on phones and partially used offline. The entire system is built on a client-server architecture where React components talk to Next.js API routes, which in turn query a PostgreSQL database hosted on Supabase — all secured with Row Level Security and DPDP Act compliance."</strong></p>
+</div>
+
+<h2>13. Project File Structure (Quick Reference)</h2>
+<div class="grid">
+<div class="box">
+  <p><span class="badge">app/</span> All pages (checker, doctors, medicines, dashboard, auth)</p>
+  <p><span class="badge">app/api/</span> Backend API routes (symptoms, otp, orders, profile, sessions)</p>
+  <p><span class="badge">components/</span> Reusable UI: DoctorMap, OtpModal, CartDrawer, Navbar</p>
+  <p><span class="badge">lib/</span> Prisma client, Supabase client, Zustand stores, Twilio helper</p>
+</div>
+<div class="box">
+  <p><span class="badge">prisma/</span> schema.prisma (DB models) + SQL migration files</p>
+  <p><span class="badge">data/</span> medicines.ts — static catalogue of 30 medicines with prices</p>
+  <p><span class="badge">supabase/</span> RLS policies SQL file for database security</p>
+  <p><span class="badge">.env.local</span> API keys: Supabase URL, Twilio SID, DB connection string</p>
+</div>
+</div>
+
+<p style="text-align:center;margin-top:12px;font-size:9px;color:#999">HealthLens Project Guide — Generated 2026 | For educational/presentation use only | Data sources: WHO, AIIMS, Mayo Clinic, MedlinePlus</p>
+</div>
+
+</body>
+</html>
