@@ -5,63 +5,45 @@ import { Stethoscope, Check } from "lucide-react";
 import Link from "next/link";
 import MedicineOrderForm from "@/components/medicines/MedicineOrderForm";
 import OtpVerifyScreen from "@/components/medicines/OtpVerifyScreen";
+import PaymentScreen from "@/components/medicines/PaymentScreen";
 import OrderSuccessScreen from "@/components/medicines/OrderSuccessScreen";
 
-type Screen = "form" | "otp" | "success";
+type Screen = "form" | "otp" | "payment" | "success";
 
-const STEPS = [
+const STEPS: { key: Screen; label: string }[] = [
   { key: "form",    label: "Order Details" },
   { key: "otp",     label: "Verify OTP" },
+  { key: "payment", label: "Payment" },
   { key: "success", label: "Confirmed" },
-] as const;
+];
 
 export default function MedicineOrderPage() {
-  const [screen, setScreen]                   = useState<Screen>("form");
-  const [phoneNumber, setPhoneNumber]         = useState("");
+  const [screen, setScreen]                       = useState<Screen>("form");
+  const [phoneNumber, setPhoneNumber]             = useState("");
   const [verificationToken, setVerificationToken] = useState("");
-  const [orderId, setOrderId]                 = useState("");
-  const [orderError, setOrderError]           = useState<string | null>(null);
+  const [orderId, setOrderId]                     = useState("");
+  const [orderError, setOrderError]               = useState<string | null>(null);
 
-  // ── form → otp ──────────────────────────────────────────────────────────
+  // ── form → otp ────────────────────────────────────────────────────────
   const handleOtpSent = (phone: string) => {
     setPhoneNumber(phone);
     setScreen("otp");
   };
 
-  // ── otp → success ───────────────────────────────────────────────────────
-  const handleVerified = async (token: string) => {
+  // ── otp → payment ─────────────────────────────────────────────────────
+  const handleVerified = (token: string) => {
     setVerificationToken(token);
     setOrderError(null);
-
-    try {
-      const raw = localStorage.getItem("pendingOrder");
-      if (!raw) {
-        setOrderError("Order data not found. Please fill the form again.");
-        setScreen("form");
-        return;
-      }
-      const pendingOrder = JSON.parse(raw);
-
-      const res = await fetch("/api/orders/create", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...pendingOrder, phoneNumber, verificationToken: token }),
-      });
-      const data = await res.json();
-
-      if (res.ok) {
-        setOrderId(data.data.orderId);
-        localStorage.removeItem("pendingOrder");
-        setScreen("success");
-      } else {
-        setOrderError(data.message ?? "Failed to place order. Please try again.");
-      }
-    } catch {
-      setOrderError("Network error. Please check your connection and try again.");
-    }
+    setScreen("payment");
   };
 
-  // ── success → form ──────────────────────────────────────────────────────
+  // ── payment → success ─────────────────────────────────────────────────
+  const handleOrderPlaced = (id: string) => {
+    setOrderId(id);
+    setScreen("success");
+  };
+
+  // ── success → form ────────────────────────────────────────────────────
   const handleNewOrder = () => {
     setScreen("form");
     setPhoneNumber("");
@@ -86,42 +68,42 @@ export default function MedicineOrderPage() {
         </div>
       </div>
 
-      <div className="max-w-2xl mx-auto px-4 py-10">
+      <div className="max-w-2xl mx-auto px-4 py-8">
         {/* Progress pills */}
-        <div className="flex items-center justify-center gap-2 mb-8">
+        <div className="flex items-center justify-center gap-1.5 mb-8 flex-wrap">
           {STEPS.map((step, i) => {
-            const isDone    = i < currentStep;
-            const isActive  = i === currentStep;
+            const isDone   = i < currentStep;
+            const isActive = i === currentStep;
             return (
-              <div key={step.key} className="flex items-center gap-2">
+              <div key={step.key} className="flex items-center gap-1.5">
                 <span
-                  className={`flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-medium transition-all ${
+                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-all ${
                     isActive
-                      ? "bg-teal-600 text-white shadow-sm"
+                      ? "bg-teal-600 text-white shadow-sm shadow-teal-200"
                       : isDone
                       ? "bg-green-100 text-green-700"
                       : "bg-gray-100 text-gray-400"
                   }`}
                 >
-                  {isDone && <Check size={13} />}
+                  {isDone && <Check size={11} />}
                   {step.label}
                 </span>
                 {i < STEPS.length - 1 && (
-                  <div className={`w-6 h-px ${isDone ? "bg-green-300" : "bg-gray-200"}`} />
+                  <div className={`w-5 h-px ${isDone ? "bg-green-300" : "bg-gray-200"}`} />
                 )}
               </div>
             );
           })}
         </div>
 
-        {/* Order creation error banner */}
+        {/* Error banner */}
         {orderError && (
           <div className="mb-6 bg-red-50 border border-red-200 rounded-xl px-5 py-3 text-sm text-red-700">
             {orderError}
           </div>
         )}
 
-        {/* Screen render — wrap OTP screen in relative so back button positions correctly */}
+        {/* Screens */}
         <div className={screen === "otp" ? "relative" : ""}>
           {screen === "form" && (
             <MedicineOrderForm onOtpSent={handleOtpSent} />
@@ -131,6 +113,14 @@ export default function MedicineOrderPage() {
               phoneNumber={phoneNumber}
               onVerified={handleVerified}
               onBack={() => setScreen("form")}
+            />
+          )}
+          {screen === "payment" && (
+            <PaymentScreen
+              phoneNumber={phoneNumber}
+              verificationToken={verificationToken}
+              onOrderPlaced={handleOrderPlaced}
+              onBack={() => setScreen("otp")}
             />
           )}
           {screen === "success" && (

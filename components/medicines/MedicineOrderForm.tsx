@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { Loader2, X, Plus, Minus } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Loader2, X, Plus, Minus, ShoppingCart } from "lucide-react";
+import { useCartStore } from "@/lib/stores/cartStore";
 
 type MedicineRow = { name: string; quantity: number; dosage: string };
 
@@ -10,18 +11,41 @@ interface Props {
 }
 
 export default function MedicineOrderForm({ onOtpSent }: Props) {
-  const [patientName, setPatientName] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const [patientName, setPatientName]     = useState("");
+  const [phoneNumber, setPhoneNumber]     = useState("");
   const [deliveryAddress, setDeliveryAddress] = useState("");
-  const [notes, setNotes] = useState("");
-  const [medicines, setMedicines] = useState<MedicineRow[]>([
+  const [notes, setNotes]                 = useState("");
+  const [medicines, setMedicines]         = useState<MedicineRow[]>([
     { name: "", quantity: 1, dosage: "" },
   ]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [isLoading, setIsLoading]         = useState(false);
+  const [error, setError]                 = useState<string | null>(null);
+  const [fromCart, setFromCart]           = useState(false);
+
+  const { items, clearCart } = useCartStore();
+
+  // ── Auto-populate from cart on mount ───────────────────────────────────
+  useEffect(() => {
+    if (items.length > 0) {
+      setMedicines(
+        items.map((item) => ({
+          name: item.medicine.name,
+          quantity: item.qty,
+          dosage: item.medicine.dosage,
+        }))
+      );
+      setFromCart(true);
+    }
+    // Only run once on mount
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // ── Medicine row helpers ────────────────────────────────────────────────
-  const updateMedicine = (i: number, field: keyof MedicineRow, value: string | number) => {
+  const updateMedicine = (
+    i: number,
+    field: keyof MedicineRow,
+    value: string | number
+  ) => {
     setMedicines((prev) =>
       prev.map((m, idx) => (idx === i ? { ...m, [field]: value } : m))
     );
@@ -42,9 +66,8 @@ export default function MedicineOrderForm({ onOtpSent }: Props) {
     e.preventDefault();
     setError(null);
 
-    // Validation
-    if (!patientName.trim()) return setError("Patient name is required.");
-    if (!phoneNumber.trim()) return setError("Phone number is required.");
+    if (!patientName.trim())     return setError("Patient name is required.");
+    if (!phoneNumber.trim())     return setError("Phone number is required.");
     if (!deliveryAddress.trim()) return setError("Delivery address is required.");
 
     const validMeds = medicines.filter((m) => m.name.trim() && m.quantity > 0);
@@ -53,16 +76,23 @@ export default function MedicineOrderForm({ onOtpSent }: Props) {
 
     setIsLoading(true);
 
-    // Save pending order to localStorage
+    // Save pending order to localStorage (include prices from cart for payment screen)
+    const cartPriceMap = Object.fromEntries(
+      items.map((item) => [item.medicine.name, item.medicine.price])
+    );
     const pendingOrder = {
       patientName: patientName.trim(),
       medicines: validMeds.map((m) => ({
         name: m.name.trim(),
         quantity: m.quantity,
         ...(m.dosage.trim() && { dosage: m.dosage.trim() }),
+        price: cartPriceMap[m.name.trim()] ?? 0,
       })),
       deliveryAddress: deliveryAddress.trim(),
       ...(notes.trim() && { notes: notes.trim() }),
+      total: validMeds.reduce(
+        (sum, m) => sum + (cartPriceMap[m.name.trim()] ?? 0) * m.quantity, 0
+      ),
     };
     localStorage.setItem("pendingOrder", JSON.stringify(pendingOrder));
 
@@ -75,6 +105,8 @@ export default function MedicineOrderForm({ onOtpSent }: Props) {
       const data = await res.json();
 
       if (res.ok) {
+        // Clear cart after successfully initiating order
+        if (fromCart) clearCart();
         onOtpSent(phoneNumber.trim());
       } else if (res.status === 403) {
         setError("This phone number is not authorised to place orders.");
@@ -99,6 +131,17 @@ export default function MedicineOrderForm({ onOtpSent }: Props) {
       <p className="text-sm text-gray-400 mt-1">
         Only authorised phone numbers can place orders.
       </p>
+
+      {/* Cart pre-fill banner */}
+      {fromCart && (
+        <div className="mt-4 flex items-center gap-2 bg-teal-50 border border-teal-200 rounded-xl px-4 py-3 text-sm text-teal-700">
+          <ShoppingCart size={15} className="shrink-0" />
+          <span>
+            <strong>{medicines.length} medicine{medicines.length > 1 ? "s" : ""}</strong> pre-filled from your cart.
+            You can edit them below.
+          </span>
+        </div>
+      )}
 
       {/* Error */}
       {error && (
@@ -160,7 +203,9 @@ export default function MedicineOrderForm({ onOtpSent }: Props) {
                 <div className="flex items-center gap-1 border border-gray-200 rounded-xl px-2 py-1.5">
                   <button
                     type="button"
-                    onClick={() => updateMedicine(i, "quantity", Math.max(1, med.quantity - 1))}
+                    onClick={() =>
+                      updateMedicine(i, "quantity", Math.max(1, med.quantity - 1))
+                    }
                     className="text-gray-400 hover:text-teal-600 transition-colors"
                   >
                     <Minus size={14} />
@@ -170,12 +215,20 @@ export default function MedicineOrderForm({ onOtpSent }: Props) {
                     min={1}
                     max={100}
                     value={med.quantity}
-                    onChange={(e) => updateMedicine(i, "quantity", Math.max(1, parseInt(e.target.value) || 1))}
+                    onChange={(e) =>
+                      updateMedicine(
+                        i,
+                        "quantity",
+                        Math.max(1, parseInt(e.target.value) || 1)
+                      )
+                    }
                     className="w-10 text-center text-sm outline-none font-medium"
                   />
                   <button
                     type="button"
-                    onClick={() => updateMedicine(i, "quantity", Math.min(100, med.quantity + 1))}
+                    onClick={() =>
+                      updateMedicine(i, "quantity", Math.min(100, med.quantity + 1))
+                    }
                     className="text-gray-400 hover:text-teal-600 transition-colors"
                   >
                     <Plus size={14} />
@@ -227,7 +280,8 @@ export default function MedicineOrderForm({ onOtpSent }: Props) {
         {/* Notes */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1.5">
-            Notes <span className="text-gray-400 font-normal">(optional)</span>
+            Notes{" "}
+            <span className="text-gray-400 font-normal">(optional)</span>
           </label>
           <textarea
             rows={2}

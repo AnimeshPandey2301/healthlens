@@ -112,11 +112,11 @@ export default function CartDrawer({
               Free delivery on orders above ₹299. Estimated delivery: 2–4 days.
             </p>
             <Link
-              href="/medicines/checkout"
+              href="/medicines/order"
               onClick={onClose}
               className="block w-full bg-teal-600 hover:bg-teal-700 text-white text-sm font-semibold text-center py-3 rounded-xl transition-colors"
             >
-              Proceed to Checkout →
+              Proceed to Order →
             </Link>
             <button
               onClick={clearCart}

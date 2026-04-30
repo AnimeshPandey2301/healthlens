@@ -1,13 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { isAllowedNumber } from '@/lib/twilio/client';
-import {
-  getActiveOtp,
-  verifyOtpHash,
-  incrementAttempts,
-  markVerified,
-  MAX_ATTEMPTS,
-} from '@/lib/otp/helpers';
+import { verifyOTP } from '@/lib/otpStore';
 
 const schema = z.object({
   phoneNumber: z.string(),
@@ -38,72 +32,23 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // 3. Fetch active OTP record
-    const record = await getActiveOtp(phoneNumber);
-    if (!record) {
-      return NextResponse.json(
-        { success: false, message: 'No active OTP found. Please request a new one.' },
-        { status: 404 }
-      );
-    }
+    // 3. Verify OTP against in-memory store
+    const result = verifyOTP(phoneNumber, otp);
 
-    // 4. Check expiry
-    if (new Date() > record.expiresAt) {
+    if (!result.ok) {
+      // Map error messages to appropriate HTTP codes
+      const isExpired = result.error?.includes('expired');
       return NextResponse.json(
         {
           success: false,
-          message: 'OTP has expired. Please request a new one.',
-          code: 'OTP_EXPIRED',
+          message: result.error ?? 'Verification failed.',
+          code: isExpired ? 'OTP_EXPIRED' : 'WRONG_OTP',
         },
-        { status: 410 }
+        { status: isExpired ? 410 : 400 }
       );
     }
 
-    // 5. Check max attempts (guard — getActiveOtp already filters, but be defensive)
-    if (record.attempts >= MAX_ATTEMPTS) {
-      return NextResponse.json(
-        {
-          success: false,
-          message: 'Too many wrong attempts. Please request a new OTP.',
-          code: 'MAX_ATTEMPTS',
-        },
-        { status: 429 }
-      );
-    }
-
-    // 6. Verify OTP hash
-    const isValid = await verifyOtpHash(otp, record.otpHash);
-
-    // 7. Wrong OTP
-    if (!isValid) {
-      const attempts = await incrementAttempts(record.id);
-      const remaining = MAX_ATTEMPTS - attempts;
-
-      if (remaining <= 0) {
-        return NextResponse.json(
-          {
-            success: false,
-            message: 'Too many wrong attempts. Please request a new OTP.',
-            code: 'MAX_ATTEMPTS',
-          },
-          { status: 429 }
-        );
-      }
-
-      return NextResponse.json(
-        {
-          success: false,
-          message: `Incorrect OTP. ${remaining} attempt(s) remaining.`,
-          code: 'WRONG_OTP',
-          attemptsRemaining: remaining,
-        },
-        { status: 400 }
-      );
-    }
-
-    // 8. OTP is valid — mark verified and issue token
-    await markVerified(record.id);
-
+    // 4. Issue verification token (15-minute expiry)
     const verificationToken = Buffer.from(
       JSON.stringify({ phoneNumber, verifiedAt: Date.now() })
     ).toString('base64');
